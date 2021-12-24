@@ -30,6 +30,7 @@
 |제목|Link|
 |------|---|
 |How to Call Python From Java|[사이트 링크](https://www.baeldung.com/java-working-with-python)|
+| 딥 러닝을 이용한 자연어 처리 입문|[사이트 링크](https://wikidocs.net/book/2155)|
 
 
 <br><br>
