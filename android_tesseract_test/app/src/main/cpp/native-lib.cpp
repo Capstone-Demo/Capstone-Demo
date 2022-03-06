@@ -2,7 +2,7 @@
 #include <string>
 
 extern "C" JNIEXPORT jstring JNICALL
-Java_com_example_android_1tesseract_1ocr_MainActivity_stringFromJNI(
+Java_com_example_android_1tesseract_1test_MainActivity_stringFromJNI(
         JNIEnv* env,
         jobject /* this */) {
     std::string hello = "Hello from C++";
