@@ -1,1 +1,0 @@
-C:\Users\Hong\AndroidStudioProjects\MyApplication\sdk\build\intermediates\cxx\RelWithDebInfo\ds105019\obj\arm64-v8a
