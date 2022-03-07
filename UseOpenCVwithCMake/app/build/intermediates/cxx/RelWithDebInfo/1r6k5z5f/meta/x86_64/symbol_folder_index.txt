@@ -1,0 +1,1 @@
+C:\Users\Hong\AndroidStudioProjects\UseOpenCVwithCMake\app\build\intermediates\cxx\RelWithDebInfo\1r6k5z5f\obj\x86_64

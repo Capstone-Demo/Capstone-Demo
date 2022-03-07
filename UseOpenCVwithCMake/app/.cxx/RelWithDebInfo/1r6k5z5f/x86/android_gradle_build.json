@@ -1,0 +1,40 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Hong\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\.cxx\\RelWithDebInfo\\1r6k5z5f\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Hong\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\.cxx\\RelWithDebInfo\\1r6k5z5f\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "useopencvwithcmake-RelWithDebInfo-x86": {
+      "buildCommandComponents": [
+        "C:\\Users\\Hong\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\.cxx\\RelWithDebInfo\\1r6k5z5f\\x86",
+        "useopencvwithcmake"
+      ],
+      "buildType": "release",
+      "abi": "x86",
+      "artifactName": "useopencvwithcmake",
+      "output": "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\build\\intermediates\\cxx\\RelWithDebInfo\\1r6k5z5f\\obj\\x86\\libuseopencvwithcmake.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

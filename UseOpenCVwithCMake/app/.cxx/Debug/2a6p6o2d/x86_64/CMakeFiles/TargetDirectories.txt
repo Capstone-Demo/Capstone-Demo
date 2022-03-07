@@ -1,0 +1,3 @@
+C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/x86_64/CMakeFiles/useopencvwithcmake.dir
+C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/x86_64/CMakeFiles/rebuild_cache.dir
