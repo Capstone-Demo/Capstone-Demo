@@ -26,7 +26,10 @@ import org.opencv.core.Mat;
 import java.util.Collections;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+
+
+public class MainActivity extends AppCompatActivity
+        implements CameraBridgeViewBase.CvCameraViewListener2 {
 
     private static final String TAG = "opencv";
     private Mat matInput;
