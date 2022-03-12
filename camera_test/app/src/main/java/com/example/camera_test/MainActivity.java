@@ -142,6 +142,7 @@ package com.example.camera_test;//package com.example.camera_test;
 //    }
 //}
 
+<<<<<<< HEAD
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -152,9 +153,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+=======
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+>>>>>>> parent of aeb9edc (camera setting finish and permission error clear)
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.camera_test.CameraSurfaceView;
@@ -173,12 +180,24 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     CameraSurfaceView surfaceView;
     TextView textView;
+=======
+import com.example.camera_test.databinding.ActivityMainBinding;
+
+public class MainActivity extends AppCompatActivity {
+
+    // Used to load the 'camera_test' library on application startup.
+    static {
+        System.loadLibrary("camera_test");
+    }
+>>>>>>> parent of aeb9edc (camera setting finish and permission error clear)
+
+    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         imageView = findViewById(R.id.imageView);
         surfaceView = findViewById(R.id.surfaceView);
         textView = findViewById(R.id.textView);
@@ -276,4 +295,19 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
 
+=======
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        // Example of a call to a native method
+        TextView tv = binding.sampleText;
+        tv.setText(stringFromJNI());
+    }
+
+    /**
+     * A native method that is implemented by the 'camera_test' native library,
+     * which is packaged with this application.
+     */
+    public native String stringFromJNI();
+>>>>>>> parent of aeb9edc (camera setting finish and permission error clear)
 }

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.camera_test">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -31,6 +32,8 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
+=======
+>>>>>>> parent of aeb9edc (camera setting finish and permission error clear)
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,8 +43,6 @@
         android:theme="@style/Theme.Camera_test">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
