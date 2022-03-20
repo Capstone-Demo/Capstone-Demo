@@ -2,13 +2,11 @@ package com.example.ocr_test_code;
 
 import android.content.Context;
 import android.content.res.Configuration;
-
 import android.hardware.Camera;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import static android.Manifest.permission.CAMERA;
 
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback{
     SurfaceHolder surfaceHolder;
