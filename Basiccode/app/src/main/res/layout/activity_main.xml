@@ -14,10 +14,20 @@
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp">
 
         </androidx.camera.view.PreviewView>
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:srcCompat="@tools:sample/avatars"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
