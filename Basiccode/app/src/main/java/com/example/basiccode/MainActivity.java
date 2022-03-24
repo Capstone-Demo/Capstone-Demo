@@ -23,6 +23,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
@@ -106,15 +107,42 @@ public class MainActivity extends AppCompatActivity {
                         Bitmap bitmap = mediaImageToBitmap(mediaImage);
                         Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
                         Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
-                        imageView.setImageBitmap(bitmap);
+                        Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
+                        imageView.setImageBitmap(rotatedBitmap);
                         super.onCaptureSuccess(image);
                     }
                 });
-                //takePicture();
-
             };
         });
     }
+    void bindPreview(){
+        previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
+        CameraSelector cameraSelector=new CameraSelector.Builder()
+                .requireLensFacing(lensFacing)
+                .build();
+        Preview preview = new Preview.Builder()
+                .setTargetAspectRatio(AspectRatio.RATIO_4_3) //디폴트 표준 비율
+                .build();
+        preview.setSurfaceProvider(previewView.getSurfaceProvider());
+
+        processCameraProvider.bindToLifecycle(this, cameraSelector, preview);
+    }
+    void bindImageCapture() {
+        CameraSelector cameraSelector = new CameraSelector.Builder()
+                .requireLensFacing(lensFacing)
+                .build();
+        imageCapture = new ImageCapture.Builder()
+                .build();
+        //bindToLifecycle은 Camera객체를 반환
+        processCameraProvider.bindToLifecycle(this, cameraSelector, imageCapture);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        processCameraProvider.unbindAll();
+    }
+
+    //사용자정의메소드
     public static Bitmap mediaImageToBitmap(Image mediaImage) {
         byte[] byteArray = mediaImageToByteArray(mediaImage);
         Bitmap bitmap = null;
@@ -132,10 +160,6 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
     public static byte[] mediaImageToByteArray(Image mediaImage) {
-// Converting YUV_420_888 data to YUV_420_SP (NV21).
-        //https://developer.android.com/reference/android/media/Image.html#getFormat()
-        //https://developer.android.com/reference/android/graphics/ImageFormat#JPEG
-        //https://developer.android.com/reference/android/graphics/ImageFormat#YUV_420_888
         byte[] byteArray = null;
         if (mediaImage.getFormat() == ImageFormat.JPEG) {
             ByteBuffer buffer0 = mediaImage.getPlanes()[0].getBuffer();
@@ -156,57 +180,18 @@ public class MainActivity extends AppCompatActivity {
 
         return byteArray;
     }
+    public static Bitmap rotateBitmap(Bitmap bitmap, float degree){
+        try{
+            Matrix matrix = new Matrix();
+            matrix.postRotate(degree);
+            Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
 
-    void bindPreview(){
-        previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
-        CameraSelector cameraSelector=new CameraSelector.Builder()
-                .requireLensFacing(lensFacing)
-                .build();
-        Preview preview = new Preview.Builder()
-                .setTargetAspectRatio(AspectRatio.RATIO_4_3) //디폴트 표준 비율
-                .build();
-        preview.setSurfaceProvider(previewView.getSurfaceProvider());
-
-        processCameraProvider.bindToLifecycle(this, cameraSelector, preview);
-    }
-
-    void bindImageCapture() {
-        CameraSelector cameraSelector = new CameraSelector.Builder()
-                .requireLensFacing(lensFacing)
-                .build();
-        imageCapture = new ImageCapture.Builder()
-                .build();
-        //bindToLifecycle은 Camera객체를 반환
-        processCameraProvider.bindToLifecycle(this, cameraSelector, imageCapture);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        processCameraProvider.unbindAll();
-    }
-
-    //사진찍기
-    public void takePicture(){
-        Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        //앱이 처리할 수 없는 인텐트 사용시 앱 비정상 종료
-        //null이 아닌 경우에만 인텐트 사용가능
-        if(intent.resolveActivity(getPackageManager())!=null){
-            startActivityForResult(intent,REQUEST_IMAGE_CODE);
+            return rotatedBitmap;
         }
-    }
-
-    //미리보기 이미지 가져오기
-    //onActivityResult에 전달된 intent의 "data"키 아래 extras에 작은 bitmap으로 사진 인토딩
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode==REQUEST_IMAGE_CODE&&resultCode==RESULT_OK){
-            //Bundle : 여러가지 타입의 값을 저장하는 Map 클래스
-            Bundle extras=data.getExtras();
-            Bitmap bitmap=(Bitmap) extras.get("data");
-            imageView.setImageBitmap(bitmap);
+        catch (Exception e) {
+            e.printStackTrace();
         }
+
+        return null;
     }
 }
