@@ -1,9 +1,0 @@
-com/cookandroid/useopencvwithcmake/BuildConfig.java
- com.cookandroid.useopencvwithcmake.BuildConfig
-com/cookandroid/useopencvwithcmake/databinding/ActivityMainBinding.java
- com.cookandroid.useopencvwithcmake.databinding.ActivityMainBinding
-com/cookandroid/useopencvwithcmake/MainActivity.java
- com.cookandroid.useopencvwithcmake.MainActivity
- com.cookandroid.useopencvwithcmake.MainActivity$1
- com.cookandroid.useopencvwithcmake.MainActivity$2
- com.cookandroid.useopencvwithcmake.MainActivity$3

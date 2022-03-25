@@ -1,2 +1,0 @@
-ninja: Entering directory `C:\Users\Hong\AndroidStudioProjects\UseOpenCVwithCMake\app\.cxx\Debug\2a6p6o2d\arm64-v8a'
-ninja: no work to do.

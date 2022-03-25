@@ -1,3 +1,0 @@
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/armeabi-v7a/CMakeFiles/native-lib.dir
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/armeabi-v7a/CMakeFiles/edit_cache.dir
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/armeabi-v7a/CMakeFiles/rebuild_cache.dir

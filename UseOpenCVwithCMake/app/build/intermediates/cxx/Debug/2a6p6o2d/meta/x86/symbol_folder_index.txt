@@ -1,1 +1,0 @@
-C:\Users\Hong\AndroidStudioProjects\UseOpenCVwithCMake\app\build\intermediates\cxx\Debug\2a6p6o2d\obj\x86

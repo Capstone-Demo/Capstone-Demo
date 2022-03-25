@@ -1,3 +1,0 @@
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/sdk/.cxx/RelWithDebInfo/b3h2lt5a/x86_64/CMakeFiles/opencv_jni_shared.dir
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/sdk/.cxx/RelWithDebInfo/b3h2lt5a/x86_64/CMakeFiles/edit_cache.dir
-C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/sdk/.cxx/RelWithDebInfo/b3h2lt5a/x86_64/CMakeFiles/rebuild_cache.dir

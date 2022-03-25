@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/app/.cxx/Debug/2a6p6o2d/armeabi-v7a",
-  "command": "C:\\Users\\Hong\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=armv7-none-linux-androideabi21 --gcc-toolchain=C:/Users/Hong/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Hong/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dnative_lib_EXPORTS -IC:/Users/Hong/AndroidStudioProjects/UseOpenCVwithCMake/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -std=gnu++11 -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles\\native-lib.dir\\native-lib.cpp.o -c C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\src\\main\\cpp\\native-lib.cpp",
-  "file": "C:\\Users\\Hong\\AndroidStudioProjects\\UseOpenCVwithCMake\\app\\src\\main\\cpp\\native-lib.cpp"
-}
-]
