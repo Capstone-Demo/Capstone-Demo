@@ -1,17 +1,13 @@
 package com.example.basiccode;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.AspectRatio;
 import androidx.camera.core.CameraSelector;
-import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
-import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
-import androidx.camera.core.internal.utils.ImageUtil;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
@@ -20,33 +16,33 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
 import android.graphics.Matrix;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.media.Image;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
     PreviewView previewView;
@@ -90,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     bindPreview();
                     bindImageCapture();
-                    capture();
                 }
             }
         });
@@ -105,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
         recogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imageCapture.takePicture(ContextCompat.getMainExecutor(MainActivity.this),
+                        new ImageCapture.OnImageCapturedCallback() {
+                            @Override
+                            public void onCaptureSuccess(@NonNull ImageProxy image){
+                                @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
+                                Image mediaImage=image.getImage();
+                                Bitmap bitmap = mediaImageToBitmap(mediaImage);
+                                Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
+                                Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
+                                Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
+                                imageView.setImageBitmap(rotatedBitmap);
+                                super.onCaptureSuccess(image);
+                            }
+                        });
                 showDialog_OCR();
             };
         });
@@ -188,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
 
         return null;
     }
-    //ML Kit OCR
 
     //capture method
     void capture(){
@@ -226,5 +234,63 @@ public class MainActivity extends AppCompatActivity {
                 });
         AlertDialog dialog=builder.create();
         dialog.show();
+    }
+    public Text recognizeText(InputImage image) {
+
+        //Create TextRecognizer 인스턴스
+        TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+
+        Task<Text> result =
+                recognizer.process(image)
+                        .addOnSuccessListener(new OnSuccessListener<Text>() {
+                            @Override
+                            public void onSuccess(Text visionText) {
+                                for (Text.TextBlock block : visionText.getTextBlocks()) {
+                                    Rect boundingBox = block.getBoundingBox();
+                                    Point[] cornerPoints = block.getCornerPoints();
+                                    String text = block.getText();
+
+                                    for (Text.Line line: block.getLines()) {
+                                        for (Text.Element element: line.getElements()) {
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                        .addOnFailureListener(
+                                new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                    }
+                                });
+        return null;
+    }
+    private void processTextBlock(Text result) {
+        // [START mlkit_process_text_block]
+        String resultText = result.getText();
+        for (Text.TextBlock block : result.getTextBlocks()) {
+            String blockText = block.getText();
+            Point[] blockCornerPoints = block.getCornerPoints();
+            Rect blockFrame = block.getBoundingBox();
+            for (Text.Line line : block.getLines()) {
+                String lineText = line.getText();
+                Point[] lineCornerPoints = line.getCornerPoints();
+                Rect lineFrame = line.getBoundingBox();
+                for (Text.Element element : line.getElements()) {
+                    String elementText = element.getText();
+                    Point[] elementCornerPoints = element.getCornerPoints();
+                    Rect elementFrame = element.getBoundingBox();
+                }
+            }
+        }
+        // [END mlkit_process_text_block]
+    }
+
+    private TextRecognizer getTextRecognizer() {
+        // [START mlkit_local_doc_recognizer]
+        TextRecognizer detector = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+        // [END mlkit_local_doc_recognizer]
+
+        return detector;
     }
 }

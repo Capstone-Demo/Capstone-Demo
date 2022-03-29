@@ -21,7 +21,7 @@ public class TextRecognitionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-    private void recognizeText(InputImage image) {
+    public void recognizeText(InputImage image) {
 
         //Create TextRecognizer 인스턴스
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
