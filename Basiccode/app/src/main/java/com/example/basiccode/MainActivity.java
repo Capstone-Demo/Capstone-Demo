@@ -2,6 +2,7 @@ package com.example.basiccode;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.AspectRatio;
 import androidx.camera.core.CameraSelector;
@@ -18,6 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -33,6 +35,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.TextRecognition;
+import com.google.mlkit.vision.text.TextRecognizer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -83,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     bindPreview();
                     bindImageCapture();
+                    capture();
                 }
             }
         });
@@ -97,21 +105,7 @@ public class MainActivity extends AppCompatActivity {
         recogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //캡처된 이미지를 제공된 파일 위치에 저장
-                imageCapture.takePicture(ContextCompat.getMainExecutor(MainActivity.this),
-                        new ImageCapture.OnImageCapturedCallback() {
-                    @Override
-                    public void onCaptureSuccess(@NonNull ImageProxy image){
-                        @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
-                        Image mediaImage=image.getImage();
-                        Bitmap bitmap = mediaImageToBitmap(mediaImage);
-                        Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
-                        Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
-                        Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
-                        imageView.setImageBitmap(rotatedBitmap);
-                        super.onCaptureSuccess(image);
-                    }
-                });
+                showDialog_OCR();
             };
         });
     }
@@ -193,5 +187,44 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return null;
+    }
+    //ML Kit OCR
+
+    //capture method
+    void capture(){
+        imageCapture.takePicture(ContextCompat.getMainExecutor(MainActivity.this),
+                new ImageCapture.OnImageCapturedCallback() {
+                    @Override
+                    public void onCaptureSuccess(@NonNull ImageProxy image){
+                        @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
+                        Image mediaImage=image.getImage();
+                        Bitmap bitmap = mediaImageToBitmap(mediaImage);
+                        Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
+                        Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
+                        Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
+                        imageView.setImageBitmap(rotatedBitmap);
+                        super.onCaptureSuccess(image);
+                    }
+                });
+    }
+
+    //OCR 대화상자
+    void showDialog_OCR(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this)
+                .setMessage("자동차 번호 인식 결과")
+                .setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("Retry", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }
