@@ -58,6 +58,12 @@
             android:layout_height="wrap_content"
             android:text="Recognition" />
 
+        <TextView
+            android:id="@+id/detectedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
 
     </LinearLayout>
 

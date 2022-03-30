@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -30,10 +31,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.ml.vision.FirebaseVision;
+import com.google.firebase.ml.vision.common.FirebaseVisionImage;
+import com.google.firebase.ml.vision.text.FirebaseVisionText;
+import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
@@ -42,6 +49,7 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
     ProcessCameraProvider processCameraProvider;
     int lensFacing = CameraSelector.LENS_FACING_BACK;
     ImageCapture imageCapture;
+    TextView detectedText;
+
+    FirebaseVisionImage visionImage;
 
     private static final int REQUEST_IMAGE_CODE=101;
 
@@ -61,12 +72,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         previewView=findViewById(R.id.previewView);
         startButton = findViewById(R.id.startButton);
         stopButton = findViewById(R.id.stopButton);
         recogButton=findViewById(R.id.RecogButton); //인식버튼
         imageView=findViewById(R.id.imageview);
+        detectedText = findViewById(R.id.detectedText);
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},1);
 
@@ -98,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recogButton.setOnClickListener(new View.OnClickListener() {
+            Bitmap bitmap;
+            Bitmap rotatedBitmap;
             @Override
             public void onClick(View v) {
                 imageCapture.takePicture(ContextCompat.getMainExecutor(MainActivity.this),
@@ -106,17 +119,57 @@ public class MainActivity extends AppCompatActivity {
                             public void onCaptureSuccess(@NonNull ImageProxy image){
                                 @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
                                 Image mediaImage=image.getImage();
-                                Bitmap bitmap = mediaImageToBitmap(mediaImage);
+                                bitmap = mediaImageToBitmap(mediaImage);
                                 Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
                                 Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
-                                Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
+                                rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
                                 imageView.setImageBitmap(rotatedBitmap);
                                 super.onCaptureSuccess(image);
+
+                                visionImage=FirebaseVisionImage.fromBitmap(rotatedBitmap);
+                                FirebaseVisionTextRecognizer textRecognizer=FirebaseVision.getInstance().getOnDeviceTextRecognizer();
+
+                                textRecognizer.processImage(visionImage)
+                                        .addOnSuccessListener(new OnSuccessListener<FirebaseVisionText>() {
+                                            @Override
+                                            public void onSuccess(FirebaseVisionText firebaseVisionText) {
+                                                processTextRecognitionResult(firebaseVisionText);
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
                         });
-                showDialog_OCR();
+                //showDialog_OCR();
+
+
             };
         });
+    }
+    private void processTextRecognitionResult(FirebaseVisionText text) {
+        StringBuilder fullText = new StringBuilder();
+        List<FirebaseVisionText.TextBlock> blocks = text.getTextBlocks();
+        if (blocks.size() == 0) {
+            Log.d("TAG", "No text found");
+            return;
+        }
+        for (int i = 0; i < blocks.size(); i++) {
+            List<FirebaseVisionText.Line> lines = blocks.get(i).getLines();
+            for (int j = 0; j < lines.size(); j++) {
+                List<FirebaseVisionText.Element> elements = lines.get(j).getElements();
+                for (int k = 0; k < elements.size(); k++) {
+                    fullText.append(elements.get(k).getText());
+                    fullText.append(" ");
+                }
+            }
+        }
+
+        //Set text to display
+        detectedText.setText(fullText.toString());
     }
     void bindPreview(){
         previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
@@ -196,24 +249,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return null;
-    }
-
-    //capture method
-    void capture(){
-        imageCapture.takePicture(ContextCompat.getMainExecutor(MainActivity.this),
-                new ImageCapture.OnImageCapturedCallback() {
-                    @Override
-                    public void onCaptureSuccess(@NonNull ImageProxy image){
-                        @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
-                        Image mediaImage=image.getImage();
-                        Bitmap bitmap = mediaImageToBitmap(mediaImage);
-                        Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
-                        Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
-                        Bitmap rotatedBitmap=rotateBitmap(bitmap,image.getImageInfo().getRotationDegrees());
-                        imageView.setImageBitmap(rotatedBitmap);
-                        super.onCaptureSuccess(image);
-                    }
-                });
     }
 
     //OCR 대화상자
