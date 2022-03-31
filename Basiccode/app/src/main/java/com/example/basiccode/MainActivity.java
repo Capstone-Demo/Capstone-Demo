@@ -45,6 +45,7 @@ import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.io.ByteArrayOutputStream;
@@ -62,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     ProcessCameraProvider processCameraProvider;
     int lensFacing = CameraSelector.LENS_FACING_BACK;
     ImageCapture imageCapture;
-    TextView detectedText;
 
     FirebaseVisionImage visionImage;
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         stopButton = findViewById(R.id.stopButton);
         recogButton=findViewById(R.id.RecogButton); //인식버튼
         imageView=findViewById(R.id.imageview);
-        detectedText = findViewById(R.id.detectedText);
+
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},1);
 
@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                                 imageView.setImageBitmap(rotatedBitmap);
                                 super.onCaptureSuccess(image);
 
+                                //OCR 부분
                                 visionImage=FirebaseVisionImage.fromBitmap(rotatedBitmap);
                                 FirebaseVisionTextRecognizer textRecognizer=FirebaseVision.getInstance().getOnDeviceTextRecognizer();
 
@@ -142,11 +143,13 @@ public class MainActivity extends AppCompatActivity {
                                                 Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                                             }
                                         });
+
+//                                //Korean script library
+//                                TextRecognizer recognizer =
+//                                        TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());
+
                             }
                         });
-                //showDialog_OCR();
-
-
             };
         });
     }
@@ -169,7 +172,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //Set text to display
-        detectedText.setText(fullText.toString());
+        //detectedText.setText(fullText.toString());
+        showDialog_OCR(fullText.toString());
     }
     void bindPreview(){
         previewView.setScaleType(PreviewView.ScaleType.FIT_CENTER);
@@ -252,9 +256,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //OCR 대화상자
-    void showDialog_OCR(){
+    void showDialog_OCR(String Text){
         AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this)
-                .setMessage("자동차 번호 인식 결과")
+                .setMessage(Text)
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -269,63 +273,5 @@ public class MainActivity extends AppCompatActivity {
                 });
         AlertDialog dialog=builder.create();
         dialog.show();
-    }
-    public Text recognizeText(InputImage image) {
-
-        //Create TextRecognizer 인스턴스
-        TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-
-        Task<Text> result =
-                recognizer.process(image)
-                        .addOnSuccessListener(new OnSuccessListener<Text>() {
-                            @Override
-                            public void onSuccess(Text visionText) {
-                                for (Text.TextBlock block : visionText.getTextBlocks()) {
-                                    Rect boundingBox = block.getBoundingBox();
-                                    Point[] cornerPoints = block.getCornerPoints();
-                                    String text = block.getText();
-
-                                    for (Text.Line line: block.getLines()) {
-                                        for (Text.Element element: line.getElements()) {
-                                        }
-                                    }
-                                }
-                            }
-                        })
-                        .addOnFailureListener(
-                                new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                    }
-                                });
-        return null;
-    }
-    private void processTextBlock(Text result) {
-        // [START mlkit_process_text_block]
-        String resultText = result.getText();
-        for (Text.TextBlock block : result.getTextBlocks()) {
-            String blockText = block.getText();
-            Point[] blockCornerPoints = block.getCornerPoints();
-            Rect blockFrame = block.getBoundingBox();
-            for (Text.Line line : block.getLines()) {
-                String lineText = line.getText();
-                Point[] lineCornerPoints = line.getCornerPoints();
-                Rect lineFrame = line.getBoundingBox();
-                for (Text.Element element : line.getElements()) {
-                    String elementText = element.getText();
-                    Point[] elementCornerPoints = element.getCornerPoints();
-                    Rect elementFrame = element.getBoundingBox();
-                }
-            }
-        }
-        // [END mlkit_process_text_block]
-    }
-
-    private TextRecognizer getTextRecognizer() {
-        // [START mlkit_local_doc_recognizer]
-        TextRecognizer detector = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-        // [END mlkit_local_doc_recognizer]
-
-        return detector;
     }
 }
