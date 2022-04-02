@@ -1,1 +1,0 @@
-D:\Capstone-Demo\ocr_test_code\sdk\build\intermediates\cxx\Debug\54f413e4\obj\x86_64

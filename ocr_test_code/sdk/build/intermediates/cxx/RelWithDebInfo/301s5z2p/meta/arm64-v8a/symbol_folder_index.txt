@@ -1,1 +1,0 @@
-D:\Capstone-Demo\ocr_test_code\sdk\build\intermediates\cxx\RelWithDebInfo\301s5z2p\obj\arm64-v8a
