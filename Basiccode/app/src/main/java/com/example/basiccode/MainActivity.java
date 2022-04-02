@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
     //OCR 대화상자
     void showDialog_OCR(String Text){
         AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this)
-                .setMessage(Text)
+                .setMessage("차량번호\n"+Text+"\n 시간\n "+CameraTime.Cameratime())
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
