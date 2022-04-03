@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/activity_result.xml" value="0.23333333333333334" />
+        <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/border.xml" value="0.21302083333333333" />
+        <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/firstpage.xml" value="0.2" />
+        <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/visiot_payresult.xml" value="0.21302083333333333" />
+        <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/layout/visit_pay.xml" value="0.21302083333333333" />
       </map>
     </option>
   </component>
