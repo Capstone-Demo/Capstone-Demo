@@ -41,9 +41,9 @@
   </tr>
 
   <tr th:each="college : ${collegeList}" style="cursor:pointer;" th:if="${collegeList.size() > 0}">
-    <td th:text="${college.collegeName}">바른 병원</td>
-    <td th:text="${college.address}">서울 강서구</td>
-    <td th:text="${college.qty}">100</td>
+    <td th:text="${college.collegeName}">한신대학교 중앙도서관 주차장</td>
+    <td th:text="${college.address}">경기 오산시 한신대133번길 5</td>
+    <td th:text="${college.qty}">20</td>
     <td class="btn">
       <button th:onclick="|location.href='@{/admin/college/{collegeId} (collegeId=${college.id})}'|">
         상세 정보 및 수정
