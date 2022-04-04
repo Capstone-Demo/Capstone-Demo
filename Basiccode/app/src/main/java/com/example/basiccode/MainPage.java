@@ -20,7 +20,7 @@ public class MainPage extends AppCompatActivity {
         visitbutton=findViewById(R.id.visitbutton);
         dailybutton=findViewById(R.id.dailybutton);
 
-        
+
         visitbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -8,7 +8,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="사전결제"
+        android:text="주차예약"
         android:textSize="25dp"
         android:textStyle="bold"
         android:gravity="center"/>
@@ -20,17 +20,6 @@
         android:layout_margin="20dp"
         android:gravity="center">
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="70dp"-->
-<!--            android:background="@color/gray"-->
-<!--            android:hint="차량번호을 입력해주세요"-->
-<!--            android:gravity="center"-->
-<!--            android:textSize="25dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_gravity="center"-->
-<!--            />-->
         <EditText
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -49,6 +38,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
+        <EditText
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/gray"
+            android:hint="주차구역을 입력하세요"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:inputType="textPersonName"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
         <Button
             android:id="@+id/resultbutton"
@@ -57,7 +64,7 @@
             android:textSize="25dp"
             android:textStyle="bold"
             android:background="@color/lightpurple"
-            android:text="조회" />
+            android:text="예약" />
 
     </LinearLayout>
 

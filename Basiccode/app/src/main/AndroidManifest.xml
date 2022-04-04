@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".VisitPayPage"/>
         <activity android:name=".VisitPayPageResult"/>
+        <activity android:name=".DailyReservationPage" />
+        <activity android:name=".DailyMainPage"/>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
