@@ -16,13 +16,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 //정기권 사용자 페이지 프래그먼트 페이지
 public class DailyMainFragment extends Fragment {
 
-
-    //BottomNavigationView bottomNavigationView;
-    //FragmentManager fragmentManager=getSupportFragementManager();
-    //DailyReservationPage dailyReservationPage;
-
-    //private DailyMainFragment dailyMainFragment=new DailyMainFragment();
-
     DailyMainPage dailyMainPage;
 
     @Override
@@ -39,10 +32,7 @@ public class DailyMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragement_main, container, false);
-        //return inflater.inflate(R.layout.fragement_main,container,false);
-        ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragement_main,container,false);
+        ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.daily_main,container,false);
         return rootView;
     }
 }

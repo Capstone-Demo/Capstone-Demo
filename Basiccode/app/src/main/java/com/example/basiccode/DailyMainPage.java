@@ -13,20 +13,18 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 
 public class DailyMainPage extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
-    FragmentManager fragmentManager=getSupportFragmentManager();
-    private DailyMainFragment dailyMainFragment=new DailyMainFragment();
+    DailyMainFragment dailyMainFragment;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.daily_main);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+        dailyMainFragment=new DailyMainFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.action_container,dailyMainFragment).commit();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
-
-        //NavigationBarView navigationBarView=findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -41,9 +39,4 @@ public class DailyMainPage extends AppCompatActivity {
             }
         });
     }
-//    public void onFragmentChange(int fragmentNum){
-//        if(fragmentNum==1){
-//            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
-//        }
-//    }
 }

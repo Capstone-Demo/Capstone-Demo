@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainPage extends AppCompatActivity {
 
     Button visitbutton;
+    Button managerbutton;
     Button dailybutton;
 
     @Override
@@ -18,6 +19,7 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.firstpage);
 
         visitbutton=findViewById(R.id.visitbutton);
+        managerbutton=findViewById(R.id.managerbutton);
         dailybutton=findViewById(R.id.dailybutton);
 
 
@@ -28,10 +30,17 @@ public class MainPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        dailybutton.setOnClickListener(new View.OnClickListener() {
+        managerbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        dailybutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),DailyMainPage.class);
                 startActivity(intent);
             }
         });
