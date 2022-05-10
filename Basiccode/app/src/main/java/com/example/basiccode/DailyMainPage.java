@@ -23,7 +23,7 @@ public class DailyMainPage extends AppCompatActivity {
 
         dailyMainFragment=new DailyMainFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,dailyMainFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
@@ -32,8 +32,19 @@ public class DailyMainPage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.bottom_reservation:
-                        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                        Toast.makeText(getApplicationContext(),"예약선택",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"예약하기",Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        return true;
+                    case R.id.bottom_buying:
+                        Toast.makeText(getApplicationContext(),"정기권구매",Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        return true;
+                    case R.id.bottom_star:
+                        Toast.makeText(getApplicationContext(),"즐겨찾기",Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        return true;
+                    case R.id.bottom_mypage:
+                        Toast.makeText(getApplicationContext(),"마이페이지",Toast.LENGTH_SHORT).show();
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
                         return true;
                 }

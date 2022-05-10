@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#BDBDBD</color>
     <color name="lightpurple">#B5B2FF</color>
+    <color name="navigationBarColor">#BDBDBD</color>
+
 </resources>

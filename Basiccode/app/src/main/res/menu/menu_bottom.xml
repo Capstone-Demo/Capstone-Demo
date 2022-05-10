@@ -3,17 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
-        android:id="@+id/bottom_reservation"
-        android:title="주차구역 예약"/>
+        android:id="@+id/bottom_star"
+        android:title="즐겨찾기"/>
     <item
         android:id="@+id/bottom_buying"
         android:title="정기권 구매"/>
     <item
-        android:id="@+id/bottom_pay"
-        android:title="사전결제"/>
+        android:id="@+id/bottom_reservation"
+        android:title="예약하기"/>
     <item
-        android:id="@+id/bottom_recog"
-        android:title="차량번호 인식"/>
-
-
+        android:id="@+id/bottom_mypage"
+        android:title="마이페이지"/>
 </menu>

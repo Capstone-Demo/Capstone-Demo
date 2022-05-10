@@ -10,7 +10,7 @@
         android:layout_height="371dp"
         android:layout_weight="1"
         android:background="@color/gray"
-        android:text="방문자"
+        android:text="일반결제"
         android:textSize="25dp"
         android:textStyle="bold" />
     <Button
@@ -19,7 +19,7 @@
         android:layout_height="371dp"
         android:layout_weight="1"
         android:background="@color/lightpurple"
-        android:text="정기권\n사용자"
+        android:text="정기권\n이용"
         android:textSize="25dp"
         android:textStyle="bold" />
     <Button
