@@ -15,6 +15,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class DailyMainPage extends AppCompatActivity {
     DailyMainFragment dailyMainFragment;
+    DailyMypageFragement dailyMypageFragement;
+    DailybuyingFragement dailybuyingFragement;
+    DailyStarFragement dailyStarFragement;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +40,15 @@ public class DailyMainPage extends AppCompatActivity {
                         return true;
                     case R.id.bottom_buying:
                         Toast.makeText(getApplicationContext(),"정기권구매",Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
                         return true;
                     case R.id.bottom_star:
                         Toast.makeText(getApplicationContext(),"즐겨찾기",Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
                         return true;
                     case R.id.bottom_mypage:
                         Toast.makeText(getApplicationContext(),"마이페이지",Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
                         return true;
                 }
                 return false;
