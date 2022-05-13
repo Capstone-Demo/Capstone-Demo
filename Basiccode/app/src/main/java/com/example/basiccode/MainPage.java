@@ -40,7 +40,7 @@ public class MainPage extends AppCompatActivity {
         dailybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),DailyMainPage.class);
+                Intent intent=new Intent(getApplicationContext(),DailyLogin.class);
                 startActivity(intent);
             }
         });

@@ -38,12 +38,6 @@ public class DailyMainPage extends AppCompatActivity {
         dailybuyingFragement=new DailybuyingFragement();
         dailyStarFragement=new DailyStarFragement();
 
-//        Toolbar mytoolbar=findViewById(R.id.my_toolbar);
-//        setSupportActionBar(mytoolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setTitle("즐겨찾기");
-
-
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
         transaction = fragmentManager.beginTransaction();
