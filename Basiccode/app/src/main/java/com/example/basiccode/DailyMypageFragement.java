@@ -25,10 +25,12 @@ public class DailyMypageFragement extends Fragment {
         super.onDetach();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragement_mypage,container,false);
+
         return rootView;
     }
 }

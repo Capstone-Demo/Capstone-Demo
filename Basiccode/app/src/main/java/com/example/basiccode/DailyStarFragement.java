@@ -25,10 +25,12 @@ public class DailyStarFragement extends Fragment {
         super.onDetach();
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragement_star,container,false);
+
         return rootView;
     }
 }

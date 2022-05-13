@@ -29,6 +29,7 @@ public class DailybuyingFragement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView=(ViewGroup) inflater.inflate(R.layout.fragement_buying,container,false);
+
         return rootView;
     }
 }

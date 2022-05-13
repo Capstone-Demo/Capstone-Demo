@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.basiccode.MainActivity"
             android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
@@ -34,10 +34,11 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".VisitPayPage"/>
-        <activity android:name=".VisitPayPageResult"/>
-        <activity android:name=".DailyReservationPage" />
-        <activity android:name=".DailyMainPage"/>
+
+        <activity android:name="com.example.basiccode.VisitPayPage"/>
+        <activity android:name="com.example.basiccode.VisitPayPageResult"/>
+        <activity android:name="com.example.basiccode.DailyReservationPage" />
+        <activity android:name="com.example.basiccode.DailyMainPage"/>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
