@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainPage extends AppCompatActivity {
 
-    Button visitbutton;
-    Button managerbutton;
-    Button dailybutton;
+    Button visitbutton; //일반결제
+    Button managerbutton;   //관리자
+    Button dailybutton; //정기권이용
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
