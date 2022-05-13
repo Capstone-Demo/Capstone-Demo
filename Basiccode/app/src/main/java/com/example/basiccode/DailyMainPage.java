@@ -40,8 +40,7 @@ public class DailyMainPage extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
-        transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.mainFragment, dailyMainFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

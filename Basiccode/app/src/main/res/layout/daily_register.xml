@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/ID"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="ID"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/PW"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="PW"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textVie5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/PWcheck"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="PW 확인"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="이름"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/User"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="User or Admin"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray"
+        android:hint="전화번호"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/joinbutton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:background="@color/lightpurple"
+        android:text="Join" />
+</LinearLayout>

@@ -40,6 +40,7 @@
         <activity android:name="com.example.basiccode.DailyReservationPage" />
         <activity android:name="com.example.basiccode.DailyMainPage"/>
         <activity android:name="com.example.basiccode.DailyLogin"/>
+        <activity android:name="com.example.basiccode.DailyRegister"/>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
