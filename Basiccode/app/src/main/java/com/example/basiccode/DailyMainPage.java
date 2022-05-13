@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
-import android.widget.Toolbar;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,11 +22,7 @@ public class DailyMainPage extends AppCompatActivity {
     private DailyMypageFragement dailyMypageFragement;
     private DailybuyingFragement dailybuyingFragement;
     private DailyStarFragement dailyStarFragement;
-
-
-    FragmentManager fragmentManager=getSupportFragmentManager();
-
-    private FragmentTransaction transaction;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +34,10 @@ public class DailyMainPage extends AppCompatActivity {
         dailybuyingFragement=new DailybuyingFragement();
         dailyStarFragement=new DailyStarFragement();
 
+        toolbar=(Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("즐겨찾기");
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
@@ -47,23 +47,20 @@ public class DailyMainPage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.bottom_reservation:
-                        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                        //getSupportActionBar().setTitle("예약하기");
+                        getSupportActionBar().setTitle("예약하기");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
                         return true;
                     case R.id.bottom_buying:
-                        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                        //getSupportActionBar().setTitle("정기권구매");
+
+                        getSupportActionBar().setTitle("정기권구매");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
                         return true;
                     case R.id.bottom_star:
-                        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                        //getSupportActionBar().setTitle("즐겨찾기");
+                        getSupportActionBar().setTitle("즐겨찾기");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
                         return true;
                     case R.id.bottom_mypage:
-                        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                        //getSupportActionBar().setTitle("마이페이지");
+                        getSupportActionBar().setTitle("마이페이지");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
                         return true;
                 }
@@ -75,18 +72,18 @@ public class DailyMainPage extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
-
-    public void onFragmentChange(int fragmentNum){
-        if(fragmentNum==1){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
-        }else if(fragmentNum==2){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
-        }else if(fragmentNum==3){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
-        }else if(fragmentNum==4){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.back:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
+
+
 }
