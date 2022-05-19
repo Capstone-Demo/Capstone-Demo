@@ -127,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onCaptureSuccess(@NonNull ImageProxy image){
                                 analyze(image);
+                                image.close();
                             }
                         });
             };

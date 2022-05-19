@@ -18,6 +18,7 @@ public class DailyMainFragment extends Fragment {
 
     DailyMainPage dailyMainPage;
 
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);

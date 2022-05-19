@@ -70,6 +70,7 @@ public class DailyRegister extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonResponse=new JSONObject(response);
+                            //System.out.println("json"+jsonResponse);
                             boolean success=jsonResponse.getBoolean("success");
                             if(success){
                                 AlertDialog.Builder builder=new AlertDialog.Builder( DailyRegister.this );
