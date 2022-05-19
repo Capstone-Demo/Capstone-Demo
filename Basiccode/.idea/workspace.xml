@@ -12,7 +12,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef287330-13e1-4ad3-9472-c52bcd0c7454" name="Default Changelist" comment="" />
+    <list default="true" id="ef287330-13e1-4ad3-9472-c52bcd0c7454" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/ExamRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/ExamRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/StarRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/basiccode/StarRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/daily_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/daily_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/res/layout/fragement_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/res/layout/fragement_main.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +67,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.20431472" />
