@@ -36,9 +36,7 @@ public class DailyMainPage extends AppCompatActivity {
         dailybuyingFragement=new DailybuyingFragement();
         dailyStarFragement=new DailyStarFragement();
 
-        toolbar=(Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle("즐겨찾기");
+
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
@@ -49,6 +47,9 @@ public class DailyMainPage extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("user_id", user_id + "");
         dailyStarFragement.setArguments(bundle);
+        toolbar=(Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("즐겨찾기");
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, dailyStarFragement).commit();
         getSupportFragmentManager().beginTransaction().commit();
 
@@ -61,7 +62,6 @@ public class DailyMainPage extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
                         return true;
                     case R.id.bottom_buying:
-
                         getSupportActionBar().setTitle("정기권구매");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
                         return true;
