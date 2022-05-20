@@ -17,6 +17,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -56,17 +57,20 @@ public class DailyStarFragement extends Fragment {
             @Override
             public void onResponse(String response) {
                 try {
-                    // TODO : 인코딩 문제때문에 한글 DB인 경우 로그인 불가
                     System.out.println("hongchul" + response);
                     JSONObject jsonObject = new JSONObject(response);
-                    boolean success = jsonObject.getBoolean("success");
+                    JSONArray jsonArray =  jsonObject.getJSONArray("response");
 
-                    if (success) { // 즐겨찾기가 존재하는 경우
+                    int length = jsonArray.length();
+                    if (length>0) { // 즐겨찾기가 존재하는 경우
+                        for(int i=0;i<length; i++){
+                            JSONObject item = jsonArray.getJSONObject(i);
 
-                        String college_name = jsonObject.getString("college_name");
-                        int date_accept = Integer.parseInt(jsonObject.getString("date_accept"));
-                        starAdapter.addItem(new StarList(college_name, date_accept));
+                            String college_name = item.getString("college_name");
+                            int date_accept = Integer.parseInt(item.getString("date_accept"));
 
+                            starAdapter.addItem(new StarList(college_name, date_accept));
+                        }
                         listView.setAdapter(starAdapter);
 
                     } else { // 즐겨찾기가 없는 경우
