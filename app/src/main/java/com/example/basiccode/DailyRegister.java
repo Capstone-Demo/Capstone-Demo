@@ -112,7 +112,7 @@ public class DailyRegister extends AppCompatActivity {
                 final String password = et_password.getText().toString();
                 final String PassCk=et_passck.getText().toString();
                 String name = et_name.getText().toString();
-                String role = "USER";
+                String role = "ROLE_USER";
                 //radio 선택 가져오기
                 int rb_id = rg_gender.getCheckedRadioButtonId();
                 rb_result = (RadioButton)findViewById(rb_id);
