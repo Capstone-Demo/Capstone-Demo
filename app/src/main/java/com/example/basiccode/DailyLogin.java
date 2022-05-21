@@ -88,4 +88,3 @@ public class DailyLogin extends AppCompatActivity {
 
     }
 }
-

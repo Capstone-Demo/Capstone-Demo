@@ -33,6 +33,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.vision.FirebaseVision;
@@ -49,6 +52,9 @@ import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions;
 import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -56,6 +62,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.jar.JarException;
 
 public class MainActivity extends AppCompatActivity {
     PreviewView previewView;
@@ -328,6 +335,31 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String user_id= "1000"; //무조건 1000으로 넣기
+                        String status="결제 미완료"; //처음에는 무조건 결제 미완료
+                        String car_num=Text.toString(); //차량번호
+                        String entry=CameraTime.Cameratime().toString();
+
+                        Response.Listener<String> responseListener=new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try{
+                                    JSONObject jsonObject=new JSONObject(response);
+                                    boolean success=jsonObject.getBoolean("success");
+                                    if(success){
+                                        Toast.makeText(getApplicationContext(),"입차성공.",Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(),"입차실패",Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                }catch (JSONException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        };
+                        PurchaseRequest purchaseRequest=new PurchaseRequest(user_id,status,car_num,entry,responseListener);
+                        RequestQueue queue= Volley.newRequestQueue(MainActivity.this);
+                        queue.add(purchaseRequest);
 
                     }
                 })
