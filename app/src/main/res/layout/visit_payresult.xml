@@ -6,41 +6,17 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/visitpay_car_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="car_num"
-        android:textSize="30dp" />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_visitpay"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:dividerHeight="10dp"
+        android:divider="#d1d1d1">
 
-    <TextView
-        android:id="@+id/visitpay_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="입차시간"
-        android:textSize="30dp" />
-    <TextView
-        android:id="@+id/visitpay_departure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="출차시간"
-        android:textSize="30dp" />
-    <TextView
-        android:id="@+id/visitpay_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="결제 상태"
-        android:textSize="30dp" />
-    <TextView
-        android:id="@+id/visitpay_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="주차요금"
-        android:textSize="30dp" />
+    </ListView>
 
     <Button
         android:id="@+id/button"

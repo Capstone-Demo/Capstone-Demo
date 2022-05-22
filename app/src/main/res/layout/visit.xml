@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="346dp"
+        android:layout_height="410dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="100dp"
+        android:layout_marginStart="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="차량번호"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/visitpay_car_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="car_num"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="입차시간"
+            android:gravity="center"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/visitpay_entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="입차시간"
+            android:textSize="30dp" />
+        <TextView
+            android:id="@+id/textView9"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="출차시간"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/visitpay_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="출차시간"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="결제상태"
+            android:gravity="center"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/visitpay_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="결제 상태"
+            android:textSize="30dp" />
+        <TextView
+            android:id="@+id/textView11"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="금액"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/visitpay_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="car_num"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <!--    <TextView-->
+<!--        android:id="@+id/visitpay_departure"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:text="출차시간"-->
+<!--        android:textSize="30dp" />-->
+
+    <!--    <TextView-->
+<!--        android:id="@+id/visitpay_amount"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:text="주차요금"-->
+<!--        android:textSize="30dp" />-->
+
+</LinearLayout>

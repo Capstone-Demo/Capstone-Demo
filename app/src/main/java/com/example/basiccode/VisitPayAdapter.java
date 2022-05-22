@@ -37,22 +37,22 @@ public class VisitPayAdapter extends BaseAdapter {
         //bookmark.xml을 inflate해서 convertview를 참조
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.visit_payresult, parent, false);
+            convertView = inflater.inflate(R.layout.visit, parent, false);
         }
 
         //화면에 보여질 데이터 참조
         TextView visitpay_car_num = convertView.findViewById(R.id.visitpay_car_num);
         TextView visitpay_entry = convertView.findViewById(R.id.visitpay_entry);
-        TextView visitpay_departure = convertView.findViewById(R.id.visitpay_departure);
+        //TextView visitpay_departure = convertView.findViewById(R.id.visitpay_departure);
         TextView visitpay_status = convertView.findViewById(R.id.visitpay_status);
-        TextView visitpay_amount= convertView.findViewById(R.id.visitpay_amount);
+        //TextView visitpay_amount= convertView.findViewById(R.id.visitpay_amount);
 
         //데이터를 set
         visitpay_car_num.setText(visitPayList.getCar_num());
         visitpay_entry.setText(visitPayList.getEntry()+"");
-        visitpay_departure.setText(visitPayList.getDeparture()+"");
+        //visitpay_departure.setText(visitPayList.getDeparture()+"");
         visitpay_status.setText(visitPayList.getStatus()+"");
-        visitpay_amount.setText(visitPayList.getAmount()+"");
+        //visitpay_amount.setText(visitPayList.getAmount()+"");
 
         return convertView;
     }
