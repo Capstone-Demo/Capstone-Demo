@@ -18,7 +18,7 @@ public class VisitPayRequest extends StringRequest {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("car_num",car_num);
+        map.put("car_num",car_num+"");
 
     }
 

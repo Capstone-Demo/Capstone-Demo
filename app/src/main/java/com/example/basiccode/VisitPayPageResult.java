@@ -23,7 +23,6 @@ import org.json.JSONObject;
 
 public class VisitPayPageResult extends AppCompatActivity {
 
-    VisitPayPage visitPayPage;
     ListView listView;
     VisitPayAdapter visitPayAdapter;
 
