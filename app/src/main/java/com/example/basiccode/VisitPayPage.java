@@ -1,6 +1,7 @@
 package com.example.basiccode;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +26,9 @@ public class VisitPayPage extends AppCompatActivity {
                 Intent intent=new Intent(getApplicationContext(),VisitPayPageResult.class);
                 startActivity(intent);
 
-                //사전결제 차량 번호 String값으로 받아오기
-                String carNumber=carnumberText.getText().toString();
-                //System.out.println(carNumber);
+                Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
+                data.putExtra("car_num",carnumberText.getText().toString());
+                startActivity(data);
             }
         });
     }

@@ -7,20 +7,40 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:background="@color/gray"
-        android:text="결제금액\n\n\n\n\n" />
+        android:id="@+id/visitpay_car_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="car_num"
+        android:textSize="30dp" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
+        android:id="@+id/visitpay_entry"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         />
+        android:layout_marginLeft="10dp"
+        android:text="입차시간"
+        android:textSize="30dp" />
+    <TextView
+        android:id="@+id/visitpay_departure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="출차시간"
+        android:textSize="30dp" />
+    <TextView
+        android:id="@+id/visitpay_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="결제 상태"
+        android:textSize="30dp" />
+    <TextView
+        android:id="@+id/visitpay_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="주차요금"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/button"
