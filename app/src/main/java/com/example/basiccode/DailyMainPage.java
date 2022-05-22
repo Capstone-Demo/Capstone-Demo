@@ -36,8 +36,6 @@ public class DailyMainPage extends AppCompatActivity {
         dailybuyingFragement=new DailybuyingFragement();
         dailyStarFragement=new DailyStarFragement();
 
-
-
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
         Intent intent = getIntent();
@@ -46,10 +44,14 @@ public class DailyMainPage extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
         bundle.putString("user_id", user_id + "");
+
         dailyStarFragement.setArguments(bundle);
+        dailyMainFragment.setArguments(bundle);
+
         toolbar=(Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("즐겨찾기");
+
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, dailyStarFragement).commit();
         getSupportFragmentManager().beginTransaction().commit();
 

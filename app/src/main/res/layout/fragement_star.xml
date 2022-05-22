@@ -14,11 +14,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="30dp"
+                android:text="주차장명"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="130dp"
+                android:text="자리수"
+                android:textSize="20dp"
+                />
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="220dp"
+                android:text="조회"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="320dp"
+                android:text="예약"
+                android:textSize="20dp" />
+
+
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/lv_bookmark"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:dividerHeight="10dp"

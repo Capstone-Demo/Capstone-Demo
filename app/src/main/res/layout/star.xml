@@ -3,7 +3,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10dp"
+    android:paddingLeft="0dp"
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     android:background="#ffffff"
@@ -12,68 +12,64 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="6"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:layout_weight="6"
-        android:layout_gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/tv_college"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="주차장명"
-            android:textSize="20dp"
-            />
+            android:textSize="20dp" />
 
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:id="@+id/tv_accept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:text="자리수"
-            android:textSize="20dp"
-            />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_weight="1"
         android:layout_gravity="center_vertical"
-        >
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp">
 
         <Button
+            android:id="@+id/btn_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_info"
+            android:background="@color/lightpurple"
             android:text="정보조회"
             android:textColor="#fff"
-            android:textSize="18dp"
-            android:background="@color/lightpurple"
-            />
+            android:textSize="18dp" />
 
         <Button
+            android:id="@+id/btn_reserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:id="@+id/btn_reserve"
+            android:background="@color/lightpurple"
             android:text="예약하기"
             android:textColor="#fff"
             android:textSize="18dp"
-            android:background="@color/lightpurple"
             />
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

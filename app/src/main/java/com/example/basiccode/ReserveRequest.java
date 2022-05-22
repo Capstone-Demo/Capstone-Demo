@@ -7,20 +7,21 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginRequest extends StringRequest {
+public class ReserveRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.219.102/login.php";
+    final static private String URL = "http://192.168.219.102/Reserve.php";
     private Map<String, String> map;
 
-
-    public LoginRequest(String id, String password, Response.Listener<String> listener) {
+    //예약
+    public ReserveRequest(String college, String parking_area_name, int user_id, String status, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("id",id);
-        map.put("password", password);
-
+        map.put("college", college);
+        map.put("parking_area_name", parking_area_name);
+        map.put("user_id", user_id + "");
+        map.put("status", status);
     }
 
     @Override
