@@ -7,8 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class VisitPayPage extends AppCompatActivity {
     Button resultbutton;
@@ -19,6 +27,9 @@ public class VisitPayPage extends AppCompatActivity {
         resultbutton=findViewById(R.id.resultbutton);
         EditText carnumberText=findViewById(R.id.textView2);
 
+        //출차시간 가져오기
+        String departure_time=CameraTime.Cameratime().toString();
+        System.out.println("departure_time"+departure_time); //성공
 
         resultbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +40,27 @@ public class VisitPayPage extends AppCompatActivity {
                 Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
                 data.putExtra("car_num",carnumberText.getText().toString());
                 startActivity(data);
+                Response.Listener<String> responseListener=new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println("hongchul" + response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) { // 로그인에 성공한 경우
+                                Toast.makeText(getApplicationContext(),departure_time,Toast.LENGTH_SHORT).show();
+                            } else { // 로그인에 실패한 경우
+                                Toast.makeText(getApplicationContext(),"출차에 실패하였습니다.",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(carnumberText.getText().toString(),departure_time,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
+                queue.add(departureTimeRequest);
             }
         });
     }

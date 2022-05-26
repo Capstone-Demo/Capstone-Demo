@@ -8,9 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
+    //mysql -uroot -p -hlocalhost
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/Register.php";
+    final static private String URL = "http://10.0.18.214/Register.php";
     private Map<String, String> map;
 
     //회원가입

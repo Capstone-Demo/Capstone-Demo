@@ -1,25 +1,26 @@
 package com.example.basiccode;
 
 import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class StarRequest extends StringRequest {
+public class DepartureTimeRequest extends StringRequest {
+
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://10.0.18.214/bookmark.php";
+    final static private String URL = "http://10.0.18.214/DepartureTime.php";
     private Map<String, String> map;
 
-    public StarRequest(int user_id, Response.Listener<String> listener) {
-        super(Request.Method.POST, URL, listener, null);
-
+    //중복검사
+    public DepartureTimeRequest(String car_num,String departure_time, Response.Listener<String> listener) {
+        super(Method.POST, URL, listener, null);
         map = new HashMap<>();
-        map.put("user_id",user_id + "");
-
+        map.put("car_num",car_num+"");
+        map.put("departure_time",departure_time+"");
     }
+
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return map;
