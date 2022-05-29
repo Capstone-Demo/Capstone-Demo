@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -67,9 +69,13 @@ public class DailyStarFragement extends Fragment {
                             JSONObject item = jsonArray.getJSONObject(i);
 
                             String college_name = item.getString("college_name");
+                            String address = item.getString("address");
+                            String detail_address = item.getString("detail_address");
+                            String enabled = item.getString("enabled");
                             int date_accept = Integer.parseInt(item.getString("date_accept"));
+                            int total_quantity = Integer.parseInt(item.getString("total_quantity"));
 
-                            starAdapter.addItem(new StarList(college_name, date_accept));
+                            starAdapter.addItem(new StarList(college_name, address, detail_address, enabled, date_accept, total_quantity));
                         }
                         listView.setAdapter(starAdapter);
 

@@ -20,8 +20,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="42dp"
                 android:text="주차장명"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 />
@@ -30,8 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="130dp"
+                android:layout_marginLeft="135dp"
                 android:text="자리수"
+                android:textStyle="bold"
                 android:textSize="20dp"
                 />
             <TextView
@@ -41,6 +43,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="220dp"
                 android:text="조회"
+                android:textStyle="bold"
                 android:textSize="20dp" />
 
             <TextView
@@ -50,6 +53,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="320dp"
                 android:text="예약"
+                android:textStyle="bold"
                 android:textSize="20dp" />
 
 

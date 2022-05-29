@@ -27,18 +27,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//정기권 사용자 페이지 프래그먼트 페이지
+import java.util.ArrayList;
+import java.util.Arrays;
+
+//정기권 사용자 예약 프래그먼트 페이지
 public class DailyMainFragment extends Fragment {
 
     DailyMainPage dailyMainPage;
     Button btn_reserve;
-    String[] college_items = {"원하는 주차장을 선택하세요.", "한울관 주차장", "송암관 주차장"};
-    String[] parking_area_items = {"원하는 주차구역을 선택하세요.", "전기차 전용 구역", "장애인 전용 구역", "어르신 전용 구역"};
+    ArrayList<String> college_items = new ArrayList<>(Arrays.asList("원하는 주차장을 선택하세요."));
+    ArrayList<String> parking_area_items = new ArrayList<>(Arrays.asList("원하는 주차구역을 선택하세요."));
     AlertDialog dialog;
 
-    String college = "";
-    int user_id = 0;
-    String parking_area_name = "";
+    String college;
+    int user_id;
+    String parking_area_name;
     String status = "COMP";
 
     @Override
@@ -60,8 +63,42 @@ public class DailyMainFragment extends Fragment {
         //user_id값 받아오기
         user_id = Integer.parseInt(getArguments().getString("user_id"));
 
+
         //college spinner에 item 넣기
         Spinner spinner = rootView.findViewById(R.id.sp_college);
+
+        //college값 불러오기
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    System.out.println("hongchul" + response);
+                    JSONObject jsonObject = new JSONObject( response );
+
+                    JSONArray jsonArray =  jsonObject.getJSONArray("response");
+
+                    int length = jsonArray.length();
+                    if (length>0) { // 예약 가능 주차장이 존재하는 경우
+                        for(int i=0;i<length; i++){
+                            JSONObject item = jsonArray.getJSONObject(i);
+
+                            String college_name = item.getString("college_name");
+                            college_items.add(college_name);
+                        }
+
+                    } else { // 예약 가능한 주차장이 없는 경우
+                        college_items.set(0, "예약 가능한 주차장이 없습니다.");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        ReserveRequest reserveRequest = new ReserveRequest(responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        queue.add(reserveRequest);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, college_items);
@@ -74,7 +111,43 @@ public class DailyMainFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 college = adapter.getItem(position);
-                System.out.println(college);
+                System.out.println("입력될 주차장: " + college);
+
+                //parking_area 값 불러오기
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println("hongchul" + response);
+                            JSONObject jsonObject = new JSONObject( response );
+
+                            JSONArray jsonArray =  jsonObject.getJSONArray("response");
+
+                            int length = jsonArray.length();
+                            if (length>0) { // 예약 가능 주차구역이 존재하는 경우
+                                parking_area_items.clear();
+                                parking_area_items.add("원하는 주차구역을 선택하세요.");
+
+                                for(int i=0;i<length; i++){
+                                    JSONObject item = jsonArray.getJSONObject(i);
+
+                                    String parking_area = item.getString("parking_area_name");
+                                    parking_area_items.add(parking_area);
+                                }
+
+                            } else { // 예약 가능한 주차구역이 없는 경우
+                                parking_area_items.set(0, "예약 가능한 주차구역이 없습니다.");
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                ReserveRequest reserveRequest = new ReserveRequest(college, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+                queue.add(reserveRequest);
             }
 
             @Override
@@ -85,6 +158,7 @@ public class DailyMainFragment extends Fragment {
 
         //parking_area spinner에 item 넣기
         Spinner spinner2 = rootView.findViewById(R.id.sp_parking_area);
+
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(
                 getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, parking_area_items);
@@ -97,7 +171,7 @@ public class DailyMainFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 parking_area_name = adapter2.getItem(position);
-                System.out.println(parking_area_name);
+                System.out.println("입력될 주차 구역: " + parking_area_name);
             }
 
             @Override
@@ -118,22 +192,21 @@ public class DailyMainFragment extends Fragment {
                         try {
                             System.out.println("hongchul" + response);
                             JSONObject jsonObject = new JSONObject( response );
-                            boolean success = jsonObject.getBoolean( "success" );
+                            boolean success=jsonObject.getBoolean("success");
 
-                            if (success) {  //예약 성공시
-                                AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
-                                dialog=builder.setMessage("예약이 완료되었습니다.")
-                                        .setNegativeButton("확인",null)
+                            if(success) { //예약 성공시
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                dialog = builder.setMessage("예약이 완료되었습니다.")
+                                        .setNegativeButton("확인", null)
                                         .create();
                                 dialog.show();
-                            } else { //예약 실패시
-                                AlertDialog.Builder builder=new AlertDialog.Builder( getActivity());
-                                dialog=builder.setMessage("예약 실패입니다. 다시시도해주세요.")
+                            } else{
+                                AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
+                                dialog=builder.setMessage("예약에 실패하였습니다. \n 다시 시도해주세요.")
                                         .setNegativeButton("확인",null)
                                         .create();
                                 dialog.show();
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
