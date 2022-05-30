@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PurchaseRequest extends StringRequest {
-    final static private String URL = "http://10.0.18.214/purchase.php";
+    final static private String URL = "http://192.168.35.21/purchase.php";
     private Map<String, String> map;
 
     public PurchaseRequest(String user_id, String status, String car_num, String entry, Response.Listener<String>listener){
