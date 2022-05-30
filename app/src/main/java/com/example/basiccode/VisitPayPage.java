@@ -47,9 +47,10 @@ public class VisitPayPage extends AppCompatActivity {
                             System.out.println("hongchul" + response);
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
-                            if (success) { // 로그인에 성공한 경우
+                            if (success) {
                                 Toast.makeText(getApplicationContext(),departure_time,Toast.LENGTH_SHORT).show();
-                            } else { // 로그인에 실패한 경우
+
+                            } else {
                                 Toast.makeText(getApplicationContext(),"출차에 실패하였습니다.",Toast.LENGTH_SHORT).show();
                                 return;
                             }
@@ -61,6 +62,10 @@ public class VisitPayPage extends AppCompatActivity {
                 DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(carnumberText.getText().toString(),departure_time,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
                 queue.add(departureTimeRequest);
+
+                CarnumRequest carnumRequest=new CarnumRequest(carnumberText.getText().toString(),responseListener);
+                RequestQueue queue2 = Volley.newRequestQueue(VisitPayPage.this);
+                queue2.add(carnumRequest);
             }
         });
     }
