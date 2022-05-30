@@ -25,6 +25,7 @@ public class VisitPayPageResult extends AppCompatActivity {
 
     ListView listView;
     VisitPayAdapter visitPayAdapter;
+    Button paybutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class VisitPayPageResult extends AppCompatActivity {
         String car_num=data.getStringExtra("car_num");
         listView=findViewById(R.id.lv_visitpay);
         visitPayAdapter=new VisitPayAdapter();
-
-
+        paybutton=findViewById(R.id.button);
+        
         Response.Listener<String> responseListener=new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -65,9 +66,19 @@ public class VisitPayPageResult extends AppCompatActivity {
                 }
             }
         };
+        paybutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //결제 요금 계산
+                Amount.amount("","");
+            }
+        });
+
         VisitPayRequest visitPayRequest=new VisitPayRequest(car_num,responseListener);
         RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this.getApplicationContext() );
         queue.add(visitPayRequest);
+
+
     }
 
 }
