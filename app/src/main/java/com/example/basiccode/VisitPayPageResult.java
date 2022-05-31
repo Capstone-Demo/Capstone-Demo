@@ -67,10 +67,11 @@ public class VisitPayPageResult extends AppCompatActivity {
             }
         };
         paybutton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onClick(View v) {
                 //결제 요금 계산
-                Amount.amount("","");
+                Amount.amount("2022.04.18. 16:09:44","2022.04.18. 17:27:59");
             }
         });
 
