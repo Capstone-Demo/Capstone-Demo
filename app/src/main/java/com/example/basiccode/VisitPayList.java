@@ -49,6 +49,7 @@ public class VisitPayList {
         this.car_num = car_num;
     }
 
+
     public VisitPayList(String car_num, String entry,String departure,String status,int amount) {
         this.car_num = car_num;
         this.entry=entry;

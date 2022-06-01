@@ -1,6 +1,7 @@
 package com.example.basiccode;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,14 +46,14 @@ public class VisitPayAdapter extends BaseAdapter {
         TextView visitpay_entry = convertView.findViewById(R.id.visitpay_entry);
         TextView visitpay_departure = convertView.findViewById(R.id.visitpay_departure);
         TextView visitpay_status = convertView.findViewById(R.id.visitpay_status);
-        //TextView visitpay_amount= convertView.findViewById(R.id.visitpay_amount);
+        TextView visitpay_amount= convertView.findViewById(R.id.visitpay_amount);
 
         //데이터를 set
         visitpay_car_num.setText(visitPayList.getCar_num());
         visitpay_entry.setText(visitPayList.getEntry()+"");
         visitpay_departure.setText(visitPayList.getDeparture()+"");
         visitpay_status.setText(visitPayList.getStatus()+"");
-        //visitpay_amount.setText(visitPayList.getAmount()+"");
+        visitpay_amount.setText(visitPayList.getAmount()+"");
 
         return convertView;
     }

@@ -39,7 +39,10 @@ public class VisitPayPage extends AppCompatActivity {
 
                 Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
                 data.putExtra("car_num",carnumberText.getText().toString());
+                data.putExtra("departure",departure_time);
                 startActivity(data);
+
+
                 Response.Listener<String> responseListener=new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -66,6 +69,7 @@ public class VisitPayPage extends AppCompatActivity {
                 CarnumRequest carnumRequest=new CarnumRequest(carnumberText.getText().toString(),responseListener);
                 RequestQueue queue2 = Volley.newRequestQueue(VisitPayPage.this);
                 queue2.add(carnumRequest);
+
             }
         });
     }

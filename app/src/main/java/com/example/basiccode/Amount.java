@@ -19,41 +19,55 @@ import java.util.Date;
 //단 정기권 구매자인 경우 패스 -> 이것도 다른 부분에서 구현 (정기권 마감 기한도 고려해야 함)
 public class Amount {
 
-    public static int amount(String entry, String departure){
-        int amount =0; //요금
-        
-        String[] split_entry_time=entry.split(" ");
-        System.out.println("entry time : "+split_entry_time[1]);//entry time
-        String[] split_departure_time=departure.split(" ");
-        System.out.println("departure time : "+split_departure_time[1]); //departure time
+    public static int amount(String entry, String departure) {
+        int amount = 0; //요금
+
+        String[] split_entry_time = entry.split(" ");
+        System.out.println("entry time : " + split_entry_time[1]);//entry time
+        String[] split_departure_time = departure.split(" ");
+        System.out.println("departure time : " + split_departure_time[1]); //departure time
+
+        String entry_D = split_entry_time[0];
+        String depart_D = split_departure_time[0];
 
         // 1. 시간을 초로 바꾸기
-        int entry_H= Integer.parseInt(split_entry_time[1].substring(0,2));
-        int entry_M= Integer.parseInt(split_entry_time[1].substring(3,5));
-        int entry_S= Integer.parseInt(split_entry_time[1].substring(6,8));
+        int entry_H = Integer.parseInt(split_entry_time[1].substring(0, 2));
+        int entry_M = Integer.parseInt(split_entry_time[1].substring(3, 5));
+        int entry_S = Integer.parseInt(split_entry_time[1].substring(6, 8));
 
-        int total_entry_time=entry_H*60*60+entry_M*60+entry_S; //58184
+        int total_entry_time = entry_H * 60 * 60 + entry_M * 60 + entry_S; //58184
 
-        int depart_H=Integer.parseInt(split_departure_time[1].substring(0,2));
-        int depart_M=Integer.parseInt(split_departure_time[1].substring(3,5));
-        int depart_S=Integer.parseInt(split_departure_time[1].substring(6,8));
+        int depart_H = Integer.parseInt(split_departure_time[1].substring(0, 2));
+        int depart_M = Integer.parseInt(split_departure_time[1].substring(3, 5));
+        int depart_S = Integer.parseInt(split_departure_time[1].substring(6, 8));
 
-        int total_depart_time=depart_H*60*60+depart_M*60+depart_S; //62879
+        int total_depart_time = depart_H * 60 * 60 + depart_M * 60 + depart_S; //62879
 
         //62879-58184=4695  기본시간 3600분
-        int time=total_depart_time-total_entry_time;
-        if(time <=3600){
-            amount=0; //1시간 이하 무료
-            //System.out.println(amount);
-        }else { //1시간 이상 유료
-            amount=1000; //기본요금
-            time=time-3600; //1095
-            time=(time/60); //18분 초는 패스
-            time=time/10;
-            amount=amount+time*100;
+        int time = total_depart_time - total_entry_time;
 
-            //System.out.println(amount);
+        if (entry_D.equals(depart_D)) {
+            if (time <= 3600) {
+                amount = 0; //1시간 이하 무료
+                System.out.println(amount);
+                return amount;
+            } else if (amount > 7500) {
+                amount = 7500;
+                System.out.println(amount);
+                return amount;
+            } else { //1시간 이상 유료
+                amount = 1000; //기본요금
+                time = time - 3600; //1095
+                time = (time / 60); //18분 초는 패스
+                time = time / 10;
+                amount = amount + time * 100;
+                System.out.println(amount);
+                return amount;
+            }
+        }else {
+            amount=100000;
+            System.out.println(amount);
+            return amount; //장기 연체
         }
-        return amount;
     }
 }
