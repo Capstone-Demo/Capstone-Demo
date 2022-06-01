@@ -80,6 +80,9 @@ public class DailyMainFragment extends Fragment {
 
                     int length = jsonArray.length();
                     if (length>0) { // 예약 가능 주차장이 존재하는 경우
+                        college_items.clear();
+                        college_items.add("원하는 주차장을 선택하세요.");
+
                         for(int i=0;i<length; i++){
                             JSONObject item = jsonArray.getJSONObject(i);
 

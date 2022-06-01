@@ -43,11 +43,6 @@ public class StarAdapter extends BaseAdapter {
 
     Context context;
     AlertDialog dialog;
-    OnItemClick mCallback;
-
-    StarAdapter(OnItemClick listener){
-        this.mCallback = listener;
-    }
 
     @Override
     public int getCount() { //ArrayList의 크기 반환
@@ -100,8 +95,6 @@ public class StarAdapter extends BaseAdapter {
         btn_reserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("예약하기 버튼 누름");
-//                mCallback.onClick(items.get(position).getCollege_name());
                 popUpXml(items.get(position).getCollege_name(), items.get(position).getUser_id());
             }
         });

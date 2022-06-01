@@ -25,11 +25,11 @@ import org.json.JSONObject;
 
 
 //정기권 사용자 즐겨찾기 프래그먼트 페이지
-public class DailyStarFragement extends Fragment implements OnItemClick{
+public class DailyStarFragement extends Fragment{
 
     DailyMainPage dailyMainPage;
     ListView listView;
-    StarAdapter starAdapter = new StarAdapter(this);
+    StarAdapter starAdapter;
     DailyMainFragment dailyMainFragment;
 
 
@@ -52,6 +52,7 @@ public class DailyStarFragement extends Fragment implements OnItemClick{
 
         //StarList참조
         listView = rootView.findViewById(R.id.lv_bookmark);
+        starAdapter = new StarAdapter();
 
         int user_id = Integer.parseInt(getArguments().getString("user_id"));
 
@@ -95,18 +96,5 @@ public class DailyStarFragement extends Fragment implements OnItemClick{
         queue.add(starRequest);
 
         return rootView;
-    }
-
-    @Override
-    public void onClick(String value) {
-        dailyMainFragment = new DailyMainFragment();
-        int user_id = Integer.parseInt(getArguments().getString("user_id"));
-
-        System.out.println("받아온 대학 이름" + value);
-        Bundle bundle = new Bundle();
-        bundle.putString("college_name", value);
-        bundle.putString("user_id", user_id + "");
-        dailyMainFragment.setArguments(bundle);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, dailyMainFragment).commit();
     }
 }
