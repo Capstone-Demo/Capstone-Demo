@@ -43,14 +43,17 @@ public class Amount {
         //62879-58184=4695  기본시간 3600분
         int time=total_depart_time-total_entry_time;
         if(time <=3600){
-            amount=0; //0원 기본요금
-        }else {
+            amount=0; //1시간 이하 무료
+            //System.out.println(amount);
+        }else { //1시간 이상 유료
+            amount=1000; //기본요금
             time=time-3600; //1095
-            time=time-(time/60)*60; //15
-            System.out.println(time);
+            time=(time/60); //18분 초는 패스
+            time=time/10;
+            amount=amount+time*100;
+
+            //System.out.println(amount);
         }
-        //1095초 -> 18분 15초
-        //1095-(1095/60)=15
         return amount;
     }
 }
