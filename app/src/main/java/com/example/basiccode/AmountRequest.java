@@ -18,6 +18,7 @@ public class AmountRequest extends StringRequest {
     public AmountRequest(String car_num,int amount,Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
+        System.out.println("amountrequest");
         map = new HashMap<>();
         map.put("car_num",car_num);
         map.put("amount",amount+"");

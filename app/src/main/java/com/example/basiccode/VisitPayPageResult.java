@@ -81,7 +81,6 @@ public class VisitPayPageResult extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response);
                     boolean success = jsonObject.getBoolean("success");
                     if (success) {
-
                         System.out.println("entry"+entry);
                         amount=Amount.amount(entry,departure);
                     } else {
