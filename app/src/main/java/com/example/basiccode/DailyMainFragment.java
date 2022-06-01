@@ -162,7 +162,7 @@ public class DailyMainFragment extends Fragment {
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(
                 getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, parking_area_items);
-        adapter.setDropDownViewResource(
+        adapter2.setDropDownViewResource(
                 android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
@@ -202,7 +202,7 @@ public class DailyMainFragment extends Fragment {
                                 dialog.show();
                             } else{
                                 AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
-                                dialog=builder.setMessage("예약에 실패하였습니다. \n 다시 시도해주세요.")
+                                dialog=builder.setMessage("예약이 존재합니다. \n예약 취소 후 다시 시도해주세요.")
                                         .setNegativeButton("확인",null)
                                         .create();
                                 dialog.show();

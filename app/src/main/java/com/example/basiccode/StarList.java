@@ -2,6 +2,7 @@ package com.example.basiccode;
 
 public class StarList {
 
+    private int user_id; //회원
     private String college_name; //주차장명
     private String address;  //주소
     private String detail_address; //상세주소
@@ -57,7 +58,16 @@ public class StarList {
         this.total_quantity = total_quantity;
     }
 
-    StarList(String college_name, String address, String detail_address, String enabled, int date_accept, int total_quantity){
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    StarList(int user_id, String college_name, String address, String detail_address, String enabled, int date_accept, int total_quantity){
+        this.user_id = user_id;
         this.college_name = college_name;
         this.address = address;
         this.detail_address = detail_address;

@@ -48,10 +48,11 @@ public class DailyMainPage extends AppCompatActivity {
         dailyStarFragement.setArguments(bundle);
         dailyMainFragment.setArguments(bundle);
         dailybuyingFragement.setArguments(bundle);
+        dailyMypageFragement.setArguments(bundle);
 
         toolbar=(Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
         toolbar.setTitle("즐겨찾기");
+        setSupportActionBar(toolbar);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, dailyStarFragement).commit();
         getSupportFragmentManager().beginTransaction().commit();

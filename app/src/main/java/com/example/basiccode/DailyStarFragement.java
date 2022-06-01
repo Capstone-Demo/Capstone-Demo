@@ -23,12 +23,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 //정기권 사용자 즐겨찾기 프래그먼트 페이지
-public class DailyStarFragement extends Fragment {
+public class DailyStarFragement extends Fragment implements OnItemClick{
 
     DailyMainPage dailyMainPage;
     ListView listView;
-    StarAdapter starAdapter;
+    StarAdapter starAdapter = new StarAdapter(this);
+    DailyMainFragment dailyMainFragment;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -49,8 +52,6 @@ public class DailyStarFragement extends Fragment {
 
         //StarList참조
         listView = rootView.findViewById(R.id.lv_bookmark);
-        //adapter참조
-        starAdapter = new StarAdapter();
 
         int user_id = Integer.parseInt(getArguments().getString("user_id"));
 
@@ -75,7 +76,7 @@ public class DailyStarFragement extends Fragment {
                             int date_accept = Integer.parseInt(item.getString("date_accept"));
                             int total_quantity = Integer.parseInt(item.getString("total_quantity"));
 
-                            starAdapter.addItem(new StarList(college_name, address, detail_address, enabled, date_accept, total_quantity));
+                            starAdapter.addItem(new StarList(user_id, college_name, address, detail_address, enabled, date_accept, total_quantity));
                         }
                         listView.setAdapter(starAdapter);
 
@@ -94,5 +95,18 @@ public class DailyStarFragement extends Fragment {
         queue.add(starRequest);
 
         return rootView;
+    }
+
+    @Override
+    public void onClick(String value) {
+        dailyMainFragment = new DailyMainFragment();
+        int user_id = Integer.parseInt(getArguments().getString("user_id"));
+
+        System.out.println("받아온 대학 이름" + value);
+        Bundle bundle = new Bundle();
+        bundle.putString("college_name", value);
+        bundle.putString("user_id", user_id + "");
+        dailyMainFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, dailyMainFragment).commit();
     }
 }
