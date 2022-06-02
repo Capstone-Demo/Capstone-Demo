@@ -34,8 +34,10 @@ public class VisitPayPageResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visit_payresult);
+
         Intent data=getIntent();
         String car_num=data.getStringExtra("car_num");
+
         listView=findViewById(R.id.lv_visitpay);
         visitPayAdapter=new VisitPayAdapter();
         paybutton=findViewById(R.id.button);
@@ -57,7 +59,7 @@ public class VisitPayPageResult extends AppCompatActivity {
                             entry=item.getString("entry");
                             departure=item.getString("departure");
                             String status=item.getString("status");
-                            int amount=Integer.parseInt(item.getString("amount"));
+                            amount=Amount.amount(entry,departure);
                             visitPayAdapter.addItem(new VisitPayList(car_num,entry,departure,status,amount));
 
                         }
@@ -72,26 +74,27 @@ public class VisitPayPageResult extends AppCompatActivity {
                 }
             }
         };
-
-        Response.Listener<String> responseListener2=new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    System.out.println("hongchul" + response);
-                    JSONObject jsonObject = new JSONObject(response);
-                    boolean success = jsonObject.getBoolean("success");
-                    if (success) {
-                        System.out.println("entry"+entry);
-                        amount=Amount.amount(entry,departure);
-                    } else {
-                        Toast.makeText(getApplicationContext(),"요금 계산 실패",Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
+//        System.out.println("entry"+entry);
+//        System.out.println("departure"+departure);
+//        amount=Amount.amount(entry,departure);
+//        Response.Listener<String> responseListener2=new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                try {
+//                    System.out.println("hongchul" + response);
+//                    JSONObject jsonObject = new JSONObject(response);
+//                    boolean success = jsonObject.getBoolean("success");
+//                    if (success) {
+//                        Toast.makeText(getApplicationContext(),"요금계산성공",Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Toast.makeText(getApplicationContext(),"요금 계산 실패",Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
 
         paybutton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NewApi")
@@ -104,9 +107,14 @@ public class VisitPayPageResult extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
         queue.add(visitPayRequest);
 
-        System.out.println(amount);
-        AmountRequest amountRequest=new AmountRequest(car_num,amount,responseListener2);
+        VisitPayRequest visitPayRequest1=new VisitPayRequest(car_num,amount,responseListener);
         RequestQueue queue2 = Volley.newRequestQueue(VisitPayPageResult.this );
-        queue2.add(amountRequest);
+        queue2.add(visitPayRequest1);
+
+//        System.out.println(amount);
+//
+//        AmountRequest amountRequest=new AmountRequest(car_num,amount,responseListener2);
+//        RequestQueue queue2 = Volley.newRequestQueue(VisitPayPageResult.this );
+//        queue2.add(amountRequest);
     }
 }

@@ -11,15 +11,21 @@ public class VisitPayRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
     final static private String URL = "http://192.168.35.21/VisitPay.php";
+    final static private String URL2 = "http://192.168.35.21/Amount.php";
     private Map<String, String> map;
 
     //중복검사
     public VisitPayRequest(String car_num, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
-
         map = new HashMap<>();
         map.put("car_num",car_num+"");
+    }
 
+    public VisitPayRequest(String car_num,int amount,Response.Listener<String> listener){
+        super(Method.POST, URL2, listener, null);
+        map = new HashMap<>();
+        map.put("car_num",car_num+"");
+        map.put("amount", amount+"");
     }
 
     @Override

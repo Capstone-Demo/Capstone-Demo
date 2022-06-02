@@ -51,16 +51,15 @@ public class Amount {
                 amount = 0; //1시간 이하 무료
                 System.out.println(amount);
                 return amount;
-            } else if (amount > 7500) {
-                amount = 7500;
-                System.out.println(amount);
-                return amount;
             } else { //1시간 이상 유료
                 amount = 1000; //기본요금
                 time = time - 3600; //1095
                 time = (time / 60); //18분 초는 패스
                 time = time / 10;
                 amount = amount + time * 100;
+                if(amount>7500){
+                    amount=7500;
+                }
                 System.out.println(amount);
                 return amount;
             }

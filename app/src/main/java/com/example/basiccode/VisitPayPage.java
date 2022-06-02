@@ -29,7 +29,6 @@ public class VisitPayPage extends AppCompatActivity {
 
         //출차시간 가져오기
         String departure_time=CameraTime.Cameratime().toString();
-        System.out.println("departure_time"+departure_time); //성공
 
         resultbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +38,7 @@ public class VisitPayPage extends AppCompatActivity {
 
                 Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
                 data.putExtra("car_num",carnumberText.getText().toString());
-                data.putExtra("departure",departure_time);
                 startActivity(data);
-
 
                 Response.Listener<String> responseListener=new Response.Listener<String>() {
                     @Override

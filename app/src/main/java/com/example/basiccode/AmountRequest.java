@@ -20,8 +20,8 @@ public class AmountRequest extends StringRequest {
 
         System.out.println("amountrequest");
         map = new HashMap<>();
-        map.put("car_num",car_num);
-        map.put("amount",amount+"");
+        map.put("car_num",car_num+"");
+        map.put("amount", amount+"");
     }
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
