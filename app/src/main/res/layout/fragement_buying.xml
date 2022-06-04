@@ -17,6 +17,66 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
+        <RadioGroup
+            android:id="@+id/rg_buying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp"
+            android:minHeight="48dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="25dp"
+                android:text="구매할 정기권을 선택하세요"
+                android:textSize="20dp"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="정기권 1개월          1000원"
+                android:textSize="20dp"/>
+            <RadioButton
+                android:id="@+id/radio_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="정기권 2개월          2000원"
+                android:textSize="20dp"/>
+            <RadioButton
+                android:id="@+id/radio_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="정기권 3개월          3000원"
+                android:textSize="20dp"/>
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/btn_buying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="320dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="구매하기"
+                android:textSize="20dp"
+                android:background="@color/lightpurple"
+                app:layout_constraintEnd_toEndOf="@+id/et_phone_number"
+                app:layout_constraintStart_toStartOf="@+id/et_phone_number"
+                app:layout_constraintTop_toBottomOf="@+id/et_phone_number" />
+
+
     </FrameLayout>
 
 
