@@ -37,7 +37,6 @@ public class StarAdapter extends BaseAdapter {
     ArrayList<StarList> items = new ArrayList<StarList>();
     ArrayList<String> parking_area_items = new ArrayList<>(Arrays.asList("원하는 주차구역을 선택하세요."));
 
-    int user_id;
     String status = "COMP";
     String parking_area_name;
 

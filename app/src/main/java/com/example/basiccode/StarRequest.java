@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class StarRequest extends StringRequest {
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.219.100/bookmark.php";
+    final static private String URL = "http://192.168.2.16/bookmark.php";
     private Map<String, String> map;
 
 

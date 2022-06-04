@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,8 @@ public class DailyMypageFragement extends Fragment {
 
     DailyMainPage dailyMainPage;
     AlertDialog dialog;
+    MyReserveAdapter myReserveAdapter;
+    ListView listView;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -52,6 +56,9 @@ public class DailyMypageFragement extends Fragment {
         Button btn_my_car_register = rootView.findViewById(R.id.btn_my_car_register);
         Button btn_my_car_delete = rootView.findViewById(R.id.btn_my_car_delete);
 
+        myReserveAdapter = new MyReserveAdapter();
+        listView = rootView.findViewById(R.id.lv_my_reserve);
+
         //My page 내용 조회
         Response.Listener<String> responseListener = new Response.Listener<String>() {
 
@@ -69,6 +76,20 @@ public class DailyMypageFragement extends Fragment {
                     } else{ //등록 신청된 차량이 없을 때
                         tv_my_carnum.setText("등록된 차량 없음");
                         tv_my_car_enabled.setText(" ");
+                    }
+
+
+                    boolean reserve_success=jsonObject.getBoolean("reserve_success");
+                    //my 예약 조회
+                    if(reserve_success){ //등록된 예약이 있을 때
+                        String college = jsonObject.getString("college_name");
+                        String parking_area = jsonObject.getString("parking_area");
+
+                        myReserveAdapter.addItem(user_id, college, parking_area);
+
+                        listView.setAdapter(myReserveAdapter);
+                    }else{ //등록된 예약이 없을 때
+                        return;
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -186,6 +207,8 @@ public class DailyMypageFragement extends Fragment {
                 dialog.show();
             }
         });
+
+
 
         return rootView;
     }

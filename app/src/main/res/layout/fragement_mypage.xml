@@ -36,7 +36,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="120dp"
             android:text="등록"
-            android:backgroundTint="@color/lightpurple"
+            android:backgroundTint="#FFDEDDFA"
             app:layout_constraintStart_toStartOf="parent"
             />
         <Button
@@ -46,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="210dp"
             android:text="삭제"
-            android:backgroundTint="@color/lightpurple"
+            android:backgroundTint="#FFDEDDFA"
             app:layout_constraintStart_toStartOf="parent"
             />
 
@@ -72,6 +72,31 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
+
+        <TextView
+            android:id="@+id/tv_my_reserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="20dp"
+            android:text="MY 예약현황"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv_my_reserve"
+            android:layout_marginTop="200dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:dividerHeight="0dp"
+            android:divider="#d1d1d1">
+
+        </ListView>
 
     </FrameLayout>
 
