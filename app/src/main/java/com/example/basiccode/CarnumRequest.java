@@ -15,12 +15,14 @@ public class CarnumRequest extends StringRequest {
     private Map<String, String> map;
 
     //회원가입
-    public CarnumRequest(String car_num, Response.Listener<String> listener) {
+    public CarnumRequest(String car_num, String departure_time, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
         map.put("car_num",car_num);
+        map.put("departure_time",departure_time+"");
     }
+
 
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {

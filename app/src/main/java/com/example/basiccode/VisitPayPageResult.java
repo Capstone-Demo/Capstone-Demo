@@ -51,10 +51,11 @@ public class VisitPayPageResult extends AppCompatActivity {
                     JSONArray jsonArray =  jsonObject.getJSONArray("response");
 
                     int length = jsonArray.length();
-                    if (length>0) { // 즐겨찾기가 존재하는 경우
+                    if (length>0) { // 차량번호가 존재하는 경우
                         for(int i=0;i<length; i++){
                             JSONObject item = jsonArray.getJSONObject(i);
 
+                            System.out.println("car_num : " + car_num);
                             String car_num=item.getString("car_num");
                             entry=item.getString("entry");
                             departure=item.getString("departure");
@@ -65,7 +66,7 @@ public class VisitPayPageResult extends AppCompatActivity {
                         }
                         listView.setAdapter(visitPayAdapter);
 
-                    } else { // 즐겨찾기가 없는 경우
+                    } else { // 차량번호가 존재하지 않는 경우
                         Toast.makeText(VisitPayPageResult.this,"조회된 번호가 없습니다.",Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -74,42 +75,45 @@ public class VisitPayPageResult extends AppCompatActivity {
                 }
             }
         };
-//        System.out.println("entry"+entry);
-//        System.out.println("departure"+departure);
-//        amount=Amount.amount(entry,departure);
-//        Response.Listener<String> responseListener2=new Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                try {
-//                    System.out.println("hongchul" + response);
-//                    JSONObject jsonObject = new JSONObject(response);
-//                    boolean success = jsonObject.getBoolean("success");
-//                    if (success) {
-//                        Toast.makeText(getApplicationContext(),"요금계산성공",Toast.LENGTH_LONG).show();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(),"요금 계산 실패",Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-
-        paybutton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("NewApi")
-            @Override
-            public void onClick(View v) {
-            }
-        });
 
         VisitPayRequest visitPayRequest=new VisitPayRequest(car_num,responseListener);
         RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
         queue.add(visitPayRequest);
 
-        VisitPayRequest visitPayRequest1=new VisitPayRequest(car_num,amount,responseListener);
-        RequestQueue queue2 = Volley.newRequestQueue(VisitPayPageResult.this );
-        queue2.add(visitPayRequest1);
+
+        System.out.println("amount : "+ amount);
+//        System.out.println("departure"+departure);
+//        amount=Amount.amount(entry,departure);
+
+        paybutton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onClick(View v) {
+                Response.Listener<String> responseListener=new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println("hongchul" + response);
+                            JSONObject jsonObject = new JSONObject(response);
+                            boolean success = jsonObject.getBoolean("success");
+                            if (success) {
+                                Toast.makeText(getApplicationContext(),"요금계산성공",Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(),"요금 계산 실패",Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                VisitPayRequest visitPayRequest =new VisitPayRequest(car_num,amount,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
+                queue.add(visitPayRequest);
+            }
+        });
+
 
 //        System.out.println(amount);
 //

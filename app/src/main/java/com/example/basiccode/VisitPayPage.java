@@ -24,21 +24,25 @@ public class VisitPayPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visit_pay);
+
         resultbutton=findViewById(R.id.resultbutton);
         EditText carnumberText=findViewById(R.id.textView2);
-
-        //출차시간 가져오기
-        String departure_time=CameraTime.Cameratime().toString();
 
         resultbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),VisitPayPageResult.class);
-                startActivity(intent);
+//                Intent intent=new Intent(getApplicationContext(),VisitPayPageResult.class);
+//                startActivity(intent);
 
-                Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
-                data.putExtra("car_num",carnumberText.getText().toString());
-                startActivity(data);
+                //입력된 차량번호 가져오기(추가함 보기 편하라고)
+                String car_num = carnumberText.getText().toString();
+
+                System.out.println("입력된 차량 번호 : " + car_num);
+
+                //출차시간 가져오기
+                String departure_time=CameraTime.Cameratime().toString();
+
+                System.out.println("입력된 출차 시간 : " + departure_time);
 
                 Response.Listener<String> responseListener=new Response.Listener<String>() {
                     @Override
@@ -48,6 +52,13 @@ public class VisitPayPage extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             boolean success = jsonObject.getBoolean("success");
                             if (success) {
+                                System.out.println("차량번호 넘기기 성공 차량번호 :  " + car_num);
+                                System.out.println("출차시간 넘기기 성공 출차시간 :  " + departure_time);
+
+                                Intent data=new Intent(getApplicationContext(),VisitPayPageResult.class);
+                                data.putExtra("car_num",car_num);
+                                startActivity(data);
+
                                 Toast.makeText(getApplicationContext(),departure_time,Toast.LENGTH_SHORT).show();
 
                             } else {
@@ -59,13 +70,13 @@ public class VisitPayPage extends AppCompatActivity {
                         }
                     }
                 };
-                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(carnumberText.getText().toString(),departure_time,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
-                queue.add(departureTimeRequest);
+//                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(carnumberText.getText().toString(),departure_time,responseListener);
+//                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
+//                queue.add(departureTimeRequest);
 
-                CarnumRequest carnumRequest=new CarnumRequest(carnumberText.getText().toString(),responseListener);
-                RequestQueue queue2 = Volley.newRequestQueue(VisitPayPage.this);
-                queue2.add(carnumRequest);
+                CarnumRequest carnumRequest=new CarnumRequest(car_num, departure_time, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
+                queue.add(carnumRequest);
 
             }
         });
