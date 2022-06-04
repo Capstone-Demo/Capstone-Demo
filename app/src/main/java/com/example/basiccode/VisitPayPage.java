@@ -68,13 +68,10 @@ public class VisitPayPage extends AppCompatActivity {
                         }
                     }
                 };
-                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(car_num,departure_time,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
-                queue.add(departureTimeRequest);
 
                 CarnumRequest carnumRequest=new CarnumRequest(car_num, departure_time, responseListener);
-                RequestQueue queue2 = Volley.newRequestQueue(VisitPayPage.this);
-                queue2.add(carnumRequest);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
+                queue.add(carnumRequest);
 
             }
         });
