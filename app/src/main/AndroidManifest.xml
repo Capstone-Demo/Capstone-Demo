@@ -14,8 +14,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/parking2"
-        android:label="주차관리"
+        android:icon="@drawable/parking"
+        android:label="Re_Coder ParkingSystem"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"

@@ -82,10 +82,7 @@ public class VisitPayPageResult extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
         queue.add(visitPayRequest);
 
-
         System.out.println("amount : "+ amount);
-//        System.out.println("departure"+departure);
-//        amount=Amount.amount(entry,departure);
 
         paybutton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NewApi")
@@ -111,8 +108,8 @@ public class VisitPayPageResult extends AppCompatActivity {
                 };
 
                 VisitPayRequest visitPayRequest =new VisitPayRequest(car_num,amount,responseListener);
-                RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
-                queue.add(visitPayRequest);
+                RequestQueue queue3 = Volley.newRequestQueue(VisitPayPageResult.this );
+                queue3.add(visitPayRequest);
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(VisitPayPageResult.this)
@@ -121,6 +118,11 @@ public class VisitPayPageResult extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent data=new Intent(getApplicationContext(),MainPage.class);
                                 startActivity(data);
+
+                                StatusRequest statusRequest=new StatusRequest(car_num,responseListener);
+                                RequestQueue queue1=Volley.newRequestQueue(VisitPayPageResult.this);
+                                queue1.add(statusRequest);
+
                             }
                         });
                 builder.setMessage("사전결제가 완료되었습니다. 10분안에 출차해주세요");

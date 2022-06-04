@@ -31,8 +31,6 @@ public class VisitPayPage extends AppCompatActivity {
         resultbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(getApplicationContext(),VisitPayPageResult.class);
-//                startActivity(intent);
 
                 //입력된 차량번호 가져오기(추가함 보기 편하라고)
                 String car_num = carnumberText.getText().toString();
@@ -70,13 +68,13 @@ public class VisitPayPage extends AppCompatActivity {
                         }
                     }
                 };
-//                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(carnumberText.getText().toString(),departure_time,responseListener);
-//                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
-//                queue.add(departureTimeRequest);
+                DepartureTimeRequest departureTimeRequest=new DepartureTimeRequest(car_num,departure_time,responseListener);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
+                queue.add(departureTimeRequest);
 
                 CarnumRequest carnumRequest=new CarnumRequest(car_num, departure_time, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(VisitPayPage.this);
-                queue.add(carnumRequest);
+                RequestQueue queue2 = Volley.newRequestQueue(VisitPayPage.this);
+                queue2.add(carnumRequest);
 
             }
         });
