@@ -195,21 +195,41 @@ public class DailyMainFragment extends Fragment {
                         try {
                             System.out.println("hongchul" + response);
                             JSONObject jsonObject = new JSONObject( response );
+                            boolean charge_success = jsonObject.getBoolean("charge_success");
+                            boolean car_success = jsonObject.getBoolean("car_success");
                             boolean success=jsonObject.getBoolean("success");
 
-                            if(success) { //예약 성공시
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                dialog = builder.setMessage("예약이 완료되었습니다.")
-                                        .setNegativeButton("확인", null)
-                                        .create();
-                                dialog.show();
-                            } else{
+                            if(charge_success){
+                                if(car_success){
+                                    if(success) { //예약 성공시
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                        dialog = builder.setMessage("예약이 완료되었습니다.")
+                                                .setNegativeButton("확인", null)
+                                                .create();
+                                        dialog.show();
+                                    } else{
+                                        AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
+                                        dialog=builder.setMessage("예약이 존재합니다. \n예약 취소 후 다시 시도해주세요.")
+                                                .setNegativeButton("확인",null)
+                                                .create();
+                                        dialog.show();
+                                    }
+                                }else{
+                                    AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
+                                    dialog=builder.setMessage("등록된 차량이 없습니다. \n마이페이지>차량등록 후 다시 시도해주세요.")
+                                            .setNegativeButton("확인",null)
+                                            .create();
+                                    dialog.show();
+                                }
+                            }else{
                                 AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
-                                dialog=builder.setMessage("예약이 존재합니다. \n예약 취소 후 다시 시도해주세요.")
+                                dialog=builder.setMessage("구매하신 정기권이 없습니다. \n정기권 구매 후 다시 시도해주세요.")
                                         .setNegativeButton("확인",null)
                                         .create();
                                 dialog.show();
                             }
+
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

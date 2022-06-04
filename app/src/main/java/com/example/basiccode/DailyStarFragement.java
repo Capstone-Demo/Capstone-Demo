@@ -117,6 +117,14 @@ public class DailyStarFragement extends Fragment{
             }
         });
 
+        Button btn_star_minus = rootView.findViewById(R.id.btn_star_minus);
+        btn_star_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("즐겨찾기 삭제 버튼 클릭");
+                popUpXml2(user_id);
+            }
+        });
         return rootView;
     }
 
@@ -218,7 +226,111 @@ public class DailyStarFragement extends Fragment{
                             }
                         }
                     };
-                    StarRequest starRequest = new StarRequest(user_id, college_name, responseListener);
+                    StarRequest starRequest = new StarRequest(1, user_id, college_name, responseListener);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    queue.add(starRequest);
+
+
+                    dialog.dismiss();
+                }
+            }
+        });
+        dialog = builder.create();
+        dialog.show();
+
+    }
+
+    public void popUpXml2 (int user_id){
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.star_add, null);
+        Spinner sp_star_college = view.findViewById(R.id.sp_star_college);
+
+        //즐겨찾기에 등록된 college값 불러오기
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    System.out.println("hongchul" + response);
+                    JSONObject jsonObject = new JSONObject( response );
+
+                    JSONArray jsonArray =  jsonObject.getJSONArray("response");
+
+                    int length = jsonArray.length();
+                    if (length>0) { // 즐겨찾기 등록된 주차장이 있는 경우
+                        college_items.clear();
+                        college_items.add("즐겨찾기 주차장 목록");
+
+                        for(int i=0;i<length; i++){
+                            JSONObject item = jsonArray.getJSONObject(i);
+
+                            String college_name = item.getString("college_name");
+                            college_items.add(college_name);
+                        }
+
+                    } else { //없는 경우
+                        college_items.set(0, "즐겨찾기에 등록된 주차장이 없습니다.");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        StarRequest starRequest = new StarRequest(user_id, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        queue.add(starRequest);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, college_items);
+        adapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        sp_star_college.setAdapter(adapter);
+
+        //college spineer item 클릭 시
+        sp_star_college.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                college_name = adapter.getItem(position);
+                System.out.println("입력될 주차장: " + college_name);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("즐겨찾기 삭제").setView(view);
+
+
+        builder.setNegativeButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(dialogInterface != null){
+
+                    //DB에 입력
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                        @Override
+                        public void onResponse(String response) {
+                            try {
+                                System.out.println("hongchul" + response);
+                                JSONObject jsonObject = new JSONObject( response );
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                dialog = builder.setMessage("삭제가 완료되었습니다.")
+                                        .setNegativeButton("확인", null)
+                                        .create();
+                                dialog.show();
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+                    StarRequest starRequest = new StarRequest(2, user_id, college_name, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(getActivity());
                     queue.add(starRequest);
 

@@ -118,11 +118,6 @@ public class VisitPayPageResult extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent data=new Intent(getApplicationContext(),MainPage.class);
                                 startActivity(data);
-
-                                StatusRequest statusRequest=new StatusRequest(car_num,responseListener);
-                                RequestQueue queue1=Volley.newRequestQueue(VisitPayPageResult.this);
-                                queue1.add(statusRequest);
-
                             }
                         });
                 builder.setMessage("사전결제가 완료되었습니다. 10분안에 출차해주세요");

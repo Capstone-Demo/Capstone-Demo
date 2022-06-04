@@ -10,8 +10,8 @@ import java.util.Map;
 
 public class StarRequest extends StringRequest {
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/bookmark.php";
-    final static private String URL2 = "http://192.168.35.21/bookmark_plus.php";
+    final static private String URL = "http://192.168.219.101/bookmark.php";
+    final static private String URL2 = "http://192.168.219.101/bookmark_plus.php";
     private Map<String, String> map;
 
 
@@ -23,10 +23,11 @@ public class StarRequest extends StringRequest {
 
     }
 
-    public StarRequest(int user_id, String college_name, Response.Listener<String> listener) {
+    public StarRequest(int menu, int user_id, String college_name, Response.Listener<String> listener) {
         super(Request.Method.POST, URL2, listener, null);
 
         map = new HashMap<>();
+        map.put("menu",menu + "");
         map.put("user_id",user_id + "");
         map.put("college_name",college_name);
 
