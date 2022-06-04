@@ -95,6 +95,18 @@ public class DailyStarFragement extends Fragment{
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext() );
         queue.add(starRequest);
 
+        Button btn_star_plus = rootView.findViewById(R.id.btn_star_plus);
+        btn_star_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("즐겨찾기 등록 버튼 클릭");
+            }
+        });
+
         return rootView;
+    }
+
+    public void popUpXml(int user_id){
+
     }
 }

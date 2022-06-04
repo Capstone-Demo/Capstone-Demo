@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -21,8 +22,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 //정기권 사용자 마이페이지 프래그먼트 페이지
 public class DailyMypageFragement extends Fragment {
@@ -30,7 +34,8 @@ public class DailyMypageFragement extends Fragment {
     DailyMainPage dailyMainPage;
     AlertDialog dialog;
     MyReserveAdapter myReserveAdapter;
-    ListView listView;
+    ListView reserveListView;
+    ListView chargeListVeiw;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -57,7 +62,11 @@ public class DailyMypageFragement extends Fragment {
         Button btn_my_car_delete = rootView.findViewById(R.id.btn_my_car_delete);
 
         myReserveAdapter = new MyReserveAdapter();
-        listView = rootView.findViewById(R.id.lv_my_reserve);
+        reserveListView = rootView.findViewById(R.id.lv_my_reserve);
+        chargeListVeiw = rootView.findViewById(R.id.lv_my_charge);
+
+        //my정기권 정보 저장
+        final ArrayList<String> chargeItems = new ArrayList<String>();
 
         //My page 내용 조회
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -87,10 +96,13 @@ public class DailyMypageFragement extends Fragment {
 
                         myReserveAdapter.addItem(user_id, college, parking_area);
 
-                        listView.setAdapter(myReserveAdapter);
+                        reserveListView.setAdapter(myReserveAdapter);
                     }else{ //등록된 예약이 없을 때
-                        return;
+                        myReserveAdapter.addItem(user_id, "등록된 예약 없음", " ");
+
+                        reserveListView.setAdapter(myReserveAdapter);
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -99,6 +111,49 @@ public class DailyMypageFragement extends Fragment {
         MypageRequest mypageRequest = new MypageRequest(user_id, responseListener);
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         queue.add(mypageRequest);
+
+        //My page 내용 조회(정기권파트)
+        Response.Listener<String> responseListener2 = new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    System.out.println("hongchul" + response);
+                    JSONObject jsonObject = new JSONObject( response );
+
+                    //my 정기권 조회
+                    JSONArray jsonArray =  jsonObject.getJSONArray("response");
+
+                    int length = jsonArray.length();
+
+                    if (length>0) { // 정기권이 존재하는 경우
+                        chargeItems.add("정기권이름                          사용기한");
+                        for(int i=0;i<length; i++){
+                            JSONObject item = jsonArray.getJSONObject(i);
+
+                            String charge_name = item.getString("charge_name");
+                            String deadline = item.getString("deadline");
+
+                            chargeItems.add(charge_name + "                     " + deadline);
+                        }
+
+                    } else { // 정기권이 없는 경우
+                        chargeItems.add("구매한 정기권 없음");
+                    }
+
+                    final ArrayAdapter<String> chargeAdapter = new ArrayAdapter<String>(
+                            getActivity(), android.R.layout.simple_list_item_1, chargeItems
+                    );
+                    chargeListVeiw.setAdapter(chargeAdapter);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        MypageRequest mypageRequest2 = new MypageRequest("정기권 조회", user_id, responseListener2);
+        RequestQueue queue2 = Volley.newRequestQueue(getActivity().getApplicationContext());
+        queue2.add(mypageRequest2);
 
         //car 등록 버튼 클릭
         btn_my_car_register.setOnClickListener(new View.OnClickListener() {

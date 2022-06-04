@@ -23,7 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="주차장명"
-            android:textSize="20dp" />
+            android:textSize="17dp"
+            android:textColor="@color/black"/>
 
 
         <TextView
@@ -32,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="주차구역"
-            android:textSize="20dp" />
+            android:textSize="17dp"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
@@ -50,7 +52,7 @@
             android:background="@color/lightpurple"
             android:text="예약취소"
             android:textColor="#fff"
-            android:textSize="18dp" />
+            android:textSize="17dp" />
 
     </LinearLayout>
 

@@ -97,9 +97,9 @@ public class MyReserveAdapter extends BaseAdapter {
                                         .setNegativeButton("확인", null)
                                         .create();
                                 dialog.show();
-                            } else{ //삭제실패
+                            } else{ //삭제할 예약이 없음
                                 AlertDialog.Builder builder=new AlertDialog.Builder(context);
-                                dialog = builder.setMessage("예약 취소 실패입니다. \n다시 시도해주세요")
+                                dialog = builder.setMessage("삭제할 수 있는 예약 기록이 없습니다.")
                                         .setNegativeButton("확인", null)
                                         .create();
                                 dialog.show();
