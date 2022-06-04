@@ -2,6 +2,7 @@ package com.example.basiccode;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
@@ -111,14 +113,21 @@ public class VisitPayPageResult extends AppCompatActivity {
                 VisitPayRequest visitPayRequest =new VisitPayRequest(car_num,amount,responseListener);
                 RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
                 queue.add(visitPayRequest);
+
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(VisitPayPageResult.this)
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent data=new Intent(getApplicationContext(),MainPage.class);
+                                startActivity(data);
+                            }
+                        });
+                builder.setMessage("사전결제가 완료되었습니다. 10분안에 출차해주세요");
+                AlertDialog dialog=builder.create();
+                dialog.show();
+
             }
         });
-
-
-//        System.out.println(amount);
-//
-//        AmountRequest amountRequest=new AmountRequest(car_num,amount,responseListener2);
-//        RequestQueue queue2 = Volley.newRequestQueue(VisitPayPageResult.this );
-//        queue2.add(amountRequest);
     }
 }
