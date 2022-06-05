@@ -111,14 +111,39 @@ public class VisitPayPageResult extends AppCompatActivity {
                 queue.add(visitPayRequest);
 
 
+
                 AlertDialog.Builder builder=new AlertDialog.Builder(VisitPayPageResult.this)
                         .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Intent data=new Intent(getApplicationContext(),MainPage.class);
+                                Response.Listener<String> responseListener=new Response.Listener<String>() {
+                                    @Override
+                                    public void onResponse(String response) {
+                                        try {
+                                            System.out.println("hongchul" + response);
+                                            JSONObject jsonObject = new JSONObject(response);
+                                            boolean success = jsonObject.getBoolean("success");
+                                            if (success) {
+                                                System.out.println("출차성공");
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), "출차실패", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                };
+
+                                Intent data = new Intent(getApplicationContext(), MainPage.class);
                                 startActivity(data);
                             }
                         });
+
+                StatusRequest statusRequest=new StatusRequest(car_num,responseListener);
+                RequestQueue queue2 = Volley.newRequestQueue(VisitPayPageResult.this );
+                queue2.add(statusRequest);
+
                 builder.setMessage("사전결제가 완료되었습니다. 10분안에 출차해주세요");
                 AlertDialog dialog=builder.create();
                 dialog.show();
