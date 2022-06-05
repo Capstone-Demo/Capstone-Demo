@@ -64,7 +64,6 @@ public class VisitPayPageResult extends AppCompatActivity {
                             String status=item.getString("status");
                             amount=Amount.amount(entry,departure);
                             visitPayAdapter.addItem(new VisitPayList(car_num,entry,departure,status,amount));
-
                         }
                         listView.setAdapter(visitPayAdapter);
 
@@ -108,8 +107,8 @@ public class VisitPayPageResult extends AppCompatActivity {
                 };
 
                 VisitPayRequest visitPayRequest =new VisitPayRequest(car_num,amount,responseListener);
-                RequestQueue queue3 = Volley.newRequestQueue(VisitPayPageResult.this );
-                queue3.add(visitPayRequest);
+                RequestQueue queue = Volley.newRequestQueue(VisitPayPageResult.this );
+                queue.add(visitPayRequest);
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(VisitPayPageResult.this)
