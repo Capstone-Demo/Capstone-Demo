@@ -11,13 +11,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.camera.view.PreviewView
-            android:id="@+id/previewView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp">
+            android:layout_height="300dp">
 
-        </androidx.camera.view.PreviewView>
+            <androidx.camera.view.PreviewView
+                android:id="@+id/previewView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp">
+            </androidx.camera.view.PreviewView>
+            <View
+                android:id="@+id/View"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/red_square" />
+        </FrameLayout>
         <ImageView
             android:id="@+id/imageview"
             android:layout_width="match_parent"

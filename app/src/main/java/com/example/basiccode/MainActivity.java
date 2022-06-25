@@ -30,6 +30,7 @@ import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -80,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
     private TextRecognizer textRecognizer ;
     private int scriptLang = -1;
 
+    View view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         recogButton=findViewById(R.id.RecogButton); //인식버튼
         imageView=findViewById(R.id.imageview);
 
-
+        view=findViewById(R.id.View); //빨간 박스
         
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},1);
 
@@ -111,6 +114,12 @@ public class MainActivity extends AppCompatActivity {
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     bindPreview();
                     bindImageCapture();
+                    //빨간 박스 동적 크기 조정
+                    FrameLayout.LayoutParams lp = null;
+                    lp = (FrameLayout.LayoutParams) view.getLayoutParams();
+                    lp.height=previewView.getHeight()/3;
+                    lp.width=previewView.getWidth()/2;
+                    view.setLayoutParams(lp);
                 }
             }
         });
@@ -144,16 +153,18 @@ public class MainActivity extends AppCompatActivity {
     public void analyze(@NonNull ImageProxy imageProxy) {
         Bitmap bitmap;
         Bitmap rotatedBitmap;
+        Bitmap sliceBitmap;
+
         @SuppressLint({"UnsafeExperimentalUsageError", "UnsafeOptInUsageError"})
         Image mediaImage=imageProxy.getImage();
         bitmap = mediaImageToBitmap(mediaImage);
-        Log.d("MainActivity", Integer.toString(bitmap.getWidth())); //4128
-        Log.d("MainActivity", Integer.toString(bitmap.getHeight())); //3096
-        rotatedBitmap=rotateBitmap(bitmap,imageProxy.getImageInfo().getRotationDegrees());
-        imageView.setImageBitmap(rotatedBitmap);
 
-        InputImage image =
-                InputImage.fromMediaImage(mediaImage, imageProxy.getImageInfo().getRotationDegrees());
+        //비트맵 이미지 슬라이스
+        sliceBitmap = Bitmap.createBitmap(bitmap, bitmap.getWidth()/4, bitmap.getHeight()/4, bitmap.getWidth()/2, bitmap.getHeight()/2);
+        InputImage image = InputImage.fromBitmap(sliceBitmap, imageProxy.getImageInfo().getRotationDegrees());
+        imageView.setImageBitmap(sliceBitmap);
+
+
         //korean version
         TextRecognizer textRecognizer = TextRecognition.getClient(new KoreanTextRecognizerOptions.Builder().build());
 
