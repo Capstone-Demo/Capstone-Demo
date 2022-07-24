@@ -10,5 +10,8 @@
     <color name="gray">#BDBDBD</color>
     <color name="lightpurple">#B5B2FF</color>
     <color name="navigationBarColor">#BDBDBD</color>
+    <color name="blue">#8BBDFF</color>
+    <color name="darkblue">#5587ED</color>
+    <color name="lightblue">#C4DEFF</color>
 
 </resources>

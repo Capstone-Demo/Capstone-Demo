@@ -24,7 +24,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@color/gray"
+            android:background="@color/lightblue"
             android:hint="차량번호을 입력해주세요"
             android:gravity="center"
             android:textSize="25dp"
@@ -42,7 +42,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@color/gray"
+            android:background="@color/lightblue"
             android:hint="주차구역을 입력하세요"
             android:gravity="center"
             android:textSize="25dp"
@@ -63,7 +63,7 @@
             android:layout_height="70dp"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:background="@color/lightpurple"
+            android:background="@color/darkblue"
             android:text="예약" />
 
     </LinearLayout>

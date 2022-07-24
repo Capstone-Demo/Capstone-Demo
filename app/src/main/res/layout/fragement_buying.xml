@@ -71,7 +71,7 @@
                 android:layout_marginRight="40dp"
                 android:text="구매하기"
                 android:textSize="20dp"
-                android:background="@color/lightpurple"
+                android:background="@color/darkblue"
                 app:layout_constraintEnd_toEndOf="@+id/et_phone_number"
                 app:layout_constraintStart_toStartOf="@+id/et_phone_number"
                 app:layout_constraintTop_toBottomOf="@+id/et_phone_number" />

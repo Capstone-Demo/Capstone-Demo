@@ -22,14 +22,21 @@
         <entry key="..\:/Capstone-Demo/Basiccode/app/src/main/res/menu/menu_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/drawable/red_square.xml" value="0.259" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/daily_login.xml" value="0.24947916666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/daily_main.xml" value="0.152" />
-        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/daily_reservation_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/daily_register.xml" value="0.24947916666666667" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/daily_reservation_main.xml" value="0.176" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/firstpage.xml" value="0.24947916666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/fragement_buying.xml" value="0.36614583333333334" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/fragement_main.xml" value="0.1721194879089616" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/fragement_mypage.xml" value="0.21331521739130435" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/fragement_star.xml" value="0.129981884057971" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/fragment_blank.xml" value="0.4720394736842105" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/info.xml" value="0.24947916666666667" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/my_resrve.xml" value="0.24947916666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/star.xml" value="0.2028985507246377" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/star_add.xml" value="0.24947916666666667" />
+        <entry key="..\:/Capstone-Demo/app/src/main/res/layout/star_reserve.xml" value="0.24947916666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/visit.xml" value="0.14635416666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/visit_pay.xml" value="0.14635416666666667" />
         <entry key="..\:/Capstone-Demo/app/src/main/res/layout/visit_payresult.xml" value="0.2028985507246377" />

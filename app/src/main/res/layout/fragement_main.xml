@@ -36,7 +36,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:spinnerMode="dropdown"
-        android:background="#E6E6E6"
+        android:background="@color/lightblue"
         android:minHeight="60dp"
         />
 
@@ -59,7 +59,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:spinnerMode="dropdown"
-        android:background="#E6E6E6"
+        android:background="@color/lightblue"
         android:minHeight="60dp" />
 
     <Button
@@ -73,7 +73,7 @@
         android:text="예약하기"
         android:textSize="22dp"
         android:minHeight="60dp"
-        android:background="@color/lightpurple"
+        android:background="@color/darkblue"
         />
 
     </FrameLayout>

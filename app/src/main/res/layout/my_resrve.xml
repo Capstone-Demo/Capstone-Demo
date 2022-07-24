@@ -49,7 +49,7 @@
             android:id="@+id/btn_my_reserve_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/lightpurple"
+            android:background="@color/darkblue"
             android:text="예약취소"
             android:textColor="#fff"
             android:textSize="17dp" />

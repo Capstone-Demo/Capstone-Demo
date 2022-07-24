@@ -53,7 +53,7 @@
             android:id="@+id/btn_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/lightpurple"
+            android:background="@color/darkblue"
             android:text="정보조회"
             android:textColor="#fff"
             android:textSize="18dp" />
@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:background="@color/lightpurple"
+            android:background="@color/darkblue"
             android:text="예약하기"
             android:textColor="#fff"
             android:textSize="18dp"
