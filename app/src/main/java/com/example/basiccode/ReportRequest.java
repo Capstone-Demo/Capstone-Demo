@@ -8,21 +8,23 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BuyingRequest extends StringRequest {
+public class ReportRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://172.30.1.46/Buying.php";
+    final static private String URL = "http://172.30.1.46/Report.php";
     private Map<String, String> map;
 
-    //정기권구매하기
-    public BuyingRequest(String charge_name, int amount, String deadline, int user_id, Response.Listener<String> listener) {
+    //신고하기
+    public ReportRequest(int user_id, String report_college, String car_number, String cause, String report_date, Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("charge_name", charge_name);
-        map.put("amount", amount + "");
-        map.put("deadline", deadline);
         map.put("user_id", user_id + "");
+        map.put("report_college", report_college);
+        map.put("car_number", car_number);
+        map.put("cause", cause);
+        map.put("report_date", report_date);
+        map.put("status", "미완료");
     }
 
     @Override
@@ -30,3 +32,4 @@ public class BuyingRequest extends StringRequest {
         return map;
     }
 }
+

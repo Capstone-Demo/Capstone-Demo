@@ -11,7 +11,7 @@ public class CarnumRequest extends StringRequest {
     //mysql -uroot -p -hlocalhost
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/CarNumUpdate.php";
+    final static private String URL = "http://172.30.1.46/CarNumUpdate.php";
     private Map<String, String> map;
 
     //회원가입
