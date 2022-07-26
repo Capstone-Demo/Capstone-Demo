@@ -24,6 +24,7 @@ public class DailyMainPage extends AppCompatActivity {
     private DailyMypageFragement dailyMypageFragement;
     private DailybuyingFragement dailybuyingFragement;
     private DailyStarFragement dailyStarFragement;
+    private DailyReportFragment dailyReportFragment;
     Toolbar toolbar;
 
     @Override
@@ -35,6 +36,7 @@ public class DailyMainPage extends AppCompatActivity {
         dailyMypageFragement=new DailyMypageFragement();
         dailybuyingFragement=new DailybuyingFragement();
         dailyStarFragement=new DailyStarFragement();
+        dailyReportFragment=new DailyReportFragment();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
 
@@ -49,6 +51,7 @@ public class DailyMainPage extends AppCompatActivity {
         dailyMainFragment.setArguments(bundle);
         dailybuyingFragement.setArguments(bundle);
         dailyMypageFragement.setArguments(bundle);
+        dailyReportFragment.setArguments(bundle);
 
         toolbar=(Toolbar) findViewById(R.id.my_toolbar);
         toolbar.setTitle("즐겨찾기");
@@ -76,6 +79,10 @@ public class DailyMainPage extends AppCompatActivity {
                     case R.id.bottom_mypage:
                         getSupportActionBar().setTitle("마이페이지");
                         getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
+                        return true;
+                    case R.id.bottom_report:
+                        getSupportActionBar().setTitle("신고하기");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyReportFragment).commit();
                         return true;
                 }
                 return false;

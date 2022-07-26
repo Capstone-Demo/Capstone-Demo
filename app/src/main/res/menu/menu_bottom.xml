@@ -14,4 +14,7 @@
     <item
         android:id="@+id/bottom_mypage"
         android:title="마이페이지"/>
+    <item
+        android:id="@+id/bottom_report"
+        android:title="신고하기"/>
 </menu>

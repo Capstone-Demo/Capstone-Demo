@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <FrameLayout
+        android:id="@+id/mainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv_report_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+            android:text="오늘날짜"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/et_report_college"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="주차장 위치를 입력하세요."
+            android:minHeight="48dp"
+            />
+
+        <EditText
+            android:id="@+id/et_report_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:hint="신고할 차량번호를 입력하세요."
+            android:minHeight="48dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="40dp"
+            android:text="신고사유"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rg_cause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_marginLeft="40dp"
+            android:minHeight="48dp"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_button_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예약위반"/>
+            <RadioButton
+                android:id="@+id/radio_button_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="불법주차"/>
+            <RadioButton
+                android:id="@+id/radio_button_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주차방해"/>
+
+            <RadioButton
+                android:id="@+id/radio_button_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="부당사용"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="360dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="신고하기"
+            android:textSize="20dp"
+            android:background="@color/darkblue" />
+
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
