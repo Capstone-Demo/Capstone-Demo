@@ -17,7 +17,6 @@
         android:dividerHeight="10dp"
         android:background="@color/lightblue"
         android:divider="#d1d1d1">
-
     </ListView>
     <Button
         android:id="@+id/button3"
