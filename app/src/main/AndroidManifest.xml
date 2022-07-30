@@ -55,6 +55,7 @@
         <activity android:name="com.example.basiccode.ManagerListPage"/>
         <activity android:name="com.example.basiccode.ManagerInfo"/>
         <activity android:name="com.example.basiccode.ManagerInfoResult"/>
+        <activity android:name="com.example.basiccode.ManagerReport"/>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"

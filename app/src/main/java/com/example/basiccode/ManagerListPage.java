@@ -27,7 +27,7 @@ public class ManagerListPage extends AppCompatActivity {
         reportbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),VisitPayPage.class);
+                Intent intent=new Intent(getApplicationContext(),ManagerReport.class);
                 startActivity(intent);
             }
         });
