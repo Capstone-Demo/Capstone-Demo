@@ -1,6 +1,9 @@
 package com.example.basiccode;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,7 +88,16 @@ public class ReportAdapter extends BaseAdapter {
 
                             AlertDialog.Builder builder=new AlertDialog.Builder(context);
                             AlertDialog dialog = builder.setMessage("신고내역이 처리되었습니다.")
-                                    .setNegativeButton("확인", null)
+                                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                            Intent intent = ((Activity)context).getIntent();
+                                            ((Activity)context).finish(); //현재 액티비티 종료 실시
+                                            ((Activity)context).overridePendingTransition(0, 0); //효과 없애기
+                                            ((Activity)context).startActivity(intent); //현재 액티비티 재실행 실시
+                                            ((Activity)context).overridePendingTransition(0, 0); //효과 없애기
+                                        }
+                                    })
                                     .create();
                             dialog.show();
 

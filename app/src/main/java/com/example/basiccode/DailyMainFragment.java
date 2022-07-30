@@ -1,6 +1,7 @@
 package com.example.basiccode;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -204,27 +205,63 @@ public class DailyMainFragment extends Fragment {
                                     if(success) { //예약 성공시
                                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                         dialog = builder.setMessage("예약이 완료되었습니다.")
-                                                .setNegativeButton("확인", null)
+                                                .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                                    @Override
+                                                    public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                        Intent intent = getActivity().getIntent();
+                                                        getActivity().finish(); //현재 액티비티 종료 실시
+                                                        getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                        getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                        getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                    }
+                                                })
                                                 .create();
                                         dialog.show();
                                     } else{
                                         AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
                                         dialog=builder.setMessage("예약이 존재합니다. \n예약 취소 후 다시 시도해주세요.")
-                                                .setNegativeButton("확인",null)
+                                                .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                                    @Override
+                                                    public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                        Intent intent = getActivity().getIntent();
+                                                        getActivity().finish(); //현재 액티비티 종료 실시
+                                                        getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                        getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                        getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                    }
+                                                })
                                                 .create();
                                         dialog.show();
                                     }
                                 }else{
                                     AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
                                     dialog=builder.setMessage("등록된 차량이 없습니다. \n마이페이지>차량등록 후 다시 시도해주세요.")
-                                            .setNegativeButton("확인",null)
+                                            .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                    Intent intent = getActivity().getIntent();
+                                                    getActivity().finish(); //현재 액티비티 종료 실시
+                                                    getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                    getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                    getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                }
+                                            })
                                             .create();
                                     dialog.show();
                                 }
                             }else{
                                 AlertDialog.Builder builder=new AlertDialog.Builder( getActivity() );
                                 dialog=builder.setMessage("구매하신 정기권이 없습니다. \n정기권 구매 후 다시 시도해주세요.")
-                                        .setNegativeButton("확인",null)
+                                        .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                Intent intent = getActivity().getIntent();
+                                                getActivity().finish(); //현재 액티비티 종료 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                            }
+                                        })
                                         .create();
                                 dialog.show();
                             }

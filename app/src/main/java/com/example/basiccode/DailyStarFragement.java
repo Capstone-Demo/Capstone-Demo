@@ -1,5 +1,6 @@
 package com.example.basiccode;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -211,7 +212,16 @@ public class DailyStarFragement extends Fragment{
                                 if(success) { //즐겨찾기 등록 성공시
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                     dialog = builder.setMessage("등록이 완료되었습니다.")
-                                            .setNegativeButton("확인", null)
+                                            .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                                @Override
+                                                public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                    Intent intent = getActivity().getIntent();
+                                                    getActivity().finish(); //현재 액티비티 종료 실시
+                                                    getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                    getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                    getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                }
+                                            })
                                             .create();
                                     dialog.show();
                                 } else{
@@ -321,7 +331,16 @@ public class DailyStarFragement extends Fragment{
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                 dialog = builder.setMessage("삭제가 완료되었습니다.")
-                                        .setNegativeButton("확인", null)
+                                        .setNegativeButton("확인", new DialogInterface.OnClickListener(){
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) { //새로고침
+                                                Intent intent = getActivity().getIntent();
+                                                getActivity().finish(); //현재 액티비티 종료 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                            }
+                                        })
                                         .create();
                                 dialog.show();
 
