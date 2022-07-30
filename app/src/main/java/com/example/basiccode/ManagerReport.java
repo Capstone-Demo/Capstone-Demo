@@ -46,12 +46,13 @@ public class ManagerReport extends AppCompatActivity {
                         for(int i=0;i<length; i++){
                             JSONObject item = jsonArray.getJSONObject(i);
 
+                            int report_id = item.getInt("report_id");
                             String report_date = item.getString("report_date");
                             String report_college = item.getString("college_name");
                             String car_number = item.getString("car_number");
                             String cause = item.getString("cause");
 
-                            reportAdapter.addItem(new ReportList(report_date, report_college, car_number, cause));
+                            reportAdapter.addItem(new ReportList(report_id, report_date, report_college, car_number, cause));
                         }
                         listView.setAdapter(reportAdapter);
 

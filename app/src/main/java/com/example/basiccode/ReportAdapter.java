@@ -9,6 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import androidx.appcompat.app.AlertDialog;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class ReportAdapter extends BaseAdapter {
@@ -35,6 +44,10 @@ public class ReportAdapter extends BaseAdapter {
         context = parent.getContext();
         ReportList reportList = items.get(position);
 
+        //현재 report_id값 불러오기
+        int report_id = reportList.getReport_id();
+        System.out.println("report_id = " + report_id);
+
         //report.xml을 inflate해서 convertview를 참조
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
@@ -60,6 +73,30 @@ public class ReportAdapter extends BaseAdapter {
         btn_com.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //처리완료
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            System.out.println("hongchul" + response);
+                            JSONObject jsonObject = new JSONObject( response );
+
+                            AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                            AlertDialog dialog = builder.setMessage("신고내역이 처리되었습니다.")
+                                    .setNegativeButton("확인", null)
+                                    .create();
+                            dialog.show();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                ManagerReportRequest managerReportRequest = new ManagerReportRequest(report_id, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(context);
+                queue.add(managerReportRequest);
 
             }
         });
