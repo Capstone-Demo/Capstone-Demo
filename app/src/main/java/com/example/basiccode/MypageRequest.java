@@ -11,10 +11,10 @@ import java.util.Map;
 public class MypageRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://172.30.1.46/mypage.php";
-    final static private String URL2 = "http://172.30.1.46/mycharge.php";
-    final static private String URL3 = "http://172.30.1.46/car.php";
-    final static private String URL4 = "http://172.30.1.46/myreserve.php";
+    final static private String URL = "http://192.168.35.21/mypage.php";
+    final static private String URL2 = "http://192.168.35.21/mycharge.php";
+    final static private String URL3 = "http://192.168.35.21/car.php";
+    final static private String URL4 = "http://192.168.35.21/myreserve.php";
     private Map<String, String> map;
 
 
