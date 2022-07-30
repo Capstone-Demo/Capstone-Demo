@@ -52,6 +52,7 @@
         <activity android:name="com.example.basiccode.DailyMainPage"/>
         <activity android:name="com.example.basiccode.DailyLogin"/>
         <activity android:name="com.example.basiccode.DailyRegister"/>
+        <activity android:name="com.example.basiccode.ManagerListPage"/>
 
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"

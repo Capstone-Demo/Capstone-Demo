@@ -69,7 +69,7 @@ public class MainPage extends AppCompatActivity {
         managerbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                Intent intent=new Intent(getApplicationContext(),ManagerListPage.class); //출차입차 카메라
                 startActivity(intent);
             }
         });
