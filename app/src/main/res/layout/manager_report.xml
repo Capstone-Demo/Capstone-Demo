@@ -14,11 +14,12 @@
         android:layout_margin="30dp"
         android:layout_gravity="center"
         android:orientation="vertical">
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/lv_visitpay"
-            android:dividerHeight="10dp"
+            android:id="@+id/lv_report_list"
+            android:dividerHeight="2dp"
             android:background="@color/white"
             android:divider="#d1d1d1">
         </ListView>
