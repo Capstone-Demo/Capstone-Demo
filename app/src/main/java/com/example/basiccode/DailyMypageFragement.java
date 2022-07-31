@@ -2,6 +2,7 @@ package com.example.basiccode;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -185,6 +186,13 @@ public class DailyMypageFragement extends Fragment {
                                                 tv_my_carnum.setText(car_number);
                                                 tv_my_car_enabled.setText(status);
                                                 Toast.makeText(getActivity() , "차량 등록 신청되었습니다.", Toast.LENGTH_SHORT).show();
+
+                                                //새로고침
+                                                Intent intent = getActivity().getIntent();
+                                                getActivity().finish(); //현재 액티비티 종료 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
                                             } else{ //등록실패
                                                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
                                                 dialog = builder.setMessage("등록(신청)된 차량이 있습니다. 삭제 후 재등록(신청) 해주세요.")
@@ -238,6 +246,12 @@ public class DailyMypageFragement extends Fragment {
                                                 tv_my_carnum.setText("등록된 차량 없음");
                                                 tv_my_car_enabled.setText(" ");
                                                 Toast.makeText(getActivity() , "등록(신청)된 차량이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                                                //새로고침
+                                                Intent intent = getActivity().getIntent();
+                                                getActivity().finish(); //현재 액티비티 종료 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                                getActivity().overridePendingTransition(0, 0); //효과 없애기
                                             } else{ //삭제실패
                                                 AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
                                                 dialog = builder.setMessage("등록(신청)된 차량이 없습니다.")

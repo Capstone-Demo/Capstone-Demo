@@ -1,6 +1,7 @@
 package com.example.basiccode;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -112,10 +113,24 @@ public class DailybuyingFragement extends Fragment {
 
                             if (success) {
 
+                                //새로고침
+                                Intent intent = getActivity().getIntent();
+                                getActivity().finish(); //현재 액티비티 종료 실시
+                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+
                                 Toast.makeText(getActivity() , String.format("%s 구매 완료되었습니다.", charge_name), Toast.LENGTH_SHORT).show();
 
                                 //구입 실패시
                             } else {
+                                //새로고침
+                                Intent intent = getActivity().getIntent();
+                                getActivity().finish(); //현재 액티비티 종료 실시
+                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+                                getActivity().startActivity(intent); //현재 액티비티 재실행 실시
+                                getActivity().overridePendingTransition(0, 0); //효과 없애기
+
                                 Toast.makeText(getActivity() , "정기권이 존재합니다.\n 마이페이지에서 확인해주세요.", Toast.LENGTH_SHORT).show();
                                 return;
                             }

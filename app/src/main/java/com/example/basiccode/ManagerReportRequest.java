@@ -8,29 +8,24 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StarRequest extends StringRequest {
+public class ManagerReportRequest extends StringRequest {
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.219.100/bookmark.php";
-    final static private String URL2 = "http://192.168.219.100/bookmark_plus.php";
+    final static private String URL = "http://192.168.219.100/managerReport.php";
+    final static private String URL2 = "http://192.168.219.100/managerReportUpdate.php";
     private Map<String, String> map;
 
 
-    public StarRequest(int user_id, Response.Listener<String> listener) {
+    public ManagerReportRequest(Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("user_id",user_id + "");
-
     }
 
-    public StarRequest(int menu, int user_id, String college_name, Response.Listener<String> listener) {
+    public ManagerReportRequest(int report_id, Response.Listener<String> listener) {
         super(Request.Method.POST, URL2, listener, null);
-
         map = new HashMap<>();
-        map.put("menu",menu + "");
-        map.put("user_id",user_id + "");
-        map.put("college_name",college_name);
 
+        map.put("report_id", report_id + "");
     }
 
     @Override
@@ -38,3 +33,4 @@ public class StarRequest extends StringRequest {
         return map;
     }
 }
+
