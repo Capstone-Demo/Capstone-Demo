@@ -11,7 +11,7 @@ import java.util.Map;
 public class ReportRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.219.100/Report.php";
+    final static private String URL = "http://192.168.35.21/Report.php";
     private Map<String, String> map;
 
     //신고하기

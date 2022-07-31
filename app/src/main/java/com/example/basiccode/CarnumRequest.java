@@ -23,7 +23,6 @@ public class CarnumRequest extends StringRequest {
         map.put("departure_time",departure_time+"");
     }
 
-
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return map;

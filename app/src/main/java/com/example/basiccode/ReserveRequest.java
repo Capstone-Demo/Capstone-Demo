@@ -10,9 +10,9 @@ import java.util.Map;
 public class ReserveRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.219.100/Reserve.php";
-    final static private String URL2 = "http://192.168.219.100/Reserve_college.php";
-    final static private String URL3 = "http://192.168.219.100/Reserve_area.php";
+    final static private String URL = "http://192.168.35.21/Reserve.php";
+    final static private String URL2 = "http://192.168.35.21/Reserve_college.php";
+    final static private String URL3 = "http://192.168.35.21/Reserve_area.php";
     private Map<String, String> map;
 
     //예약정보입력
