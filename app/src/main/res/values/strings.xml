@@ -10,5 +10,5 @@
     <string name="default_notification_channel_id">Channel ID</string>
     <string name="default_notification_channel_name" translatable="true">Test</string>
     <string name="msg_token_fmt" translatable="false">device token : %s</string>
-    <string name="ipconfig">"192.168.35.21"</string>
+    <string name="ipconfig">192.168.35.21</string>
 </resources>

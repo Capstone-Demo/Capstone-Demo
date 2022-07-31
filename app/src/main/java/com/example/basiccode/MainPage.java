@@ -48,6 +48,7 @@ public class MainPage extends AppCompatActivity {
                             // Log and toast
                             String msg = getString(R.string.msg_token_fmt, token);
                             Log.d("IDService", msg);
+                            Log.d("Ipconfig", "http://"+R.string.ipconfig+"/login.php");
                         }
                     });
         } catch (NullPointerException e) {
