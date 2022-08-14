@@ -77,7 +77,7 @@ public class ManagerInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manager_info);
+        setContentView(R.layout.manager_camera);
         previewView=findViewById(R.id.previewView);
         startButton = findViewById(R.id.startButton);
         stopButton = findViewById(R.id.stopButton);
@@ -337,7 +337,9 @@ public class ManagerInfo extends AppCompatActivity {
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String carnum=Text.toString(); //차량번호
                         Intent intent=new Intent(getApplicationContext(),ManagerInfoResult.class);
+                        intent.putExtra("carnum",carnum);
                         startActivity(intent);
                     }
                 })

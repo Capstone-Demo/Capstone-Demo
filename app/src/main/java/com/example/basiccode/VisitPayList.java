@@ -57,11 +57,9 @@ public class VisitPayList {
         this.status=status;
         this.amount = amount;
     }
-    public VisitPayList(String car_num, String entry,String departure,String status) {
+    public VisitPayList(String car_num,String status, String entry) {
         this.car_num = car_num;
         this.entry=entry;
-        this.departure=departure;
         this.status=status;
-        //this.amount = amount;
     }
 }
