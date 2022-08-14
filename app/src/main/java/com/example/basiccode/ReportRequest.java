@@ -24,7 +24,7 @@ public class ReportRequest extends StringRequest {
         map.put("car_number", car_number);
         map.put("cause", cause);
         map.put("report_date", report_date);
-        map.put("status", "처리중");
+        map.put("status", "처리필요");
     }
 
     @Override
