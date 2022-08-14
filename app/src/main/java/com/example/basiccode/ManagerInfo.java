@@ -77,7 +77,7 @@ public class ManagerInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manager_info);
+        setContentView(R.layout.manager_camera);
         previewView=findViewById(R.id.previewView);
         startButton = findViewById(R.id.startButton);
         stopButton = findViewById(R.id.stopButton);

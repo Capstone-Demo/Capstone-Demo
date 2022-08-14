@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 public class ManagerInfoResult extends AppCompatActivity {
     Button reportbutton, hostbutton;
-    VisitPayAdapter visitPayAdapter;
+    ManagerInoAdapter managerInoAdapter;
     String phone_num;
     ListView listView;
 
@@ -35,7 +35,7 @@ public class ManagerInfoResult extends AppCompatActivity {
         Intent intent=getIntent();
         String car_num=intent.getStringExtra("carnum");
         listView=findViewById(R.id.lv_visitpay);
-        visitPayAdapter=new VisitPayAdapter();
+        managerInoAdapter=new ManagerInoAdapter();
         
         //차량번호 확인
         System.out.println(car_num);
@@ -58,9 +58,9 @@ public class ManagerInfoResult extends AppCompatActivity {
                             String status=item.getString("purchase.status");
                             String entry=item.getString("purchase.entry");
 
-                            visitPayAdapter.addItem(new VisitPayList(car_num,status,entry));
+                            managerInoAdapter.addItem(new VisitPayList(car_num,status,entry));
                         }
-                        listView.setAdapter(visitPayAdapter);
+                        listView.setAdapter(managerInoAdapter);
 
                     } else { // 차량번호가 존재하지 않는 경우
                         Toast.makeText(ManagerInfoResult.this,"조회된 번호가 없습니다.",Toast.LENGTH_LONG).show();
