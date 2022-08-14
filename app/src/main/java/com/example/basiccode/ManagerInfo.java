@@ -337,7 +337,9 @@ public class ManagerInfo extends AppCompatActivity {
                 .setPositiveButton("Send", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        String carnum=Text.toString(); //차량번호
                         Intent intent=new Intent(getApplicationContext(),ManagerInfoResult.class);
+                        intent.putExtra("carnum",carnum);
                         startActivity(intent);
                     }
                 })
