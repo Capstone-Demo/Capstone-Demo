@@ -10,7 +10,7 @@ import java.util.Map;
 public class StatusRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL3 = "http://192.168.35.21/Status.php";
+    final static private String URL3 = "http://192.168.219.101/Status.php";
     private Map<String, String> map;
 
     public StatusRequest(String car_num, Response.Listener<String> listener) {

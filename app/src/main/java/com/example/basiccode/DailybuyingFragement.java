@@ -76,32 +76,28 @@ public class DailybuyingFragement extends Fragment {
                 //radio선택 가져오기
                 int rb_id = rg_buying.getCheckedRadioButtonId();
 
-                switch (rb_id){
-                    case R.id.radio_A:{
-                        charge_name = "정기권(1개월)";
-                        amount = 1000;
-                        cal.setTime(mDate);
-                        cal.add(Calendar.MONTH, 1);
-                        deadline = simpleDate.format(cal.getTime());
-                        break;
-                    }
-                    case R.id.radio_B:{
-                        charge_name = "정기권(2개월)";
-                        amount = 2000;
-                        cal.setTime(mDate);
-                        cal.add(Calendar.MONTH, 2);
-                        deadline = simpleDate.format(cal.getTime());
-                        break;
-                    }
-                    case R.id.radio_C:{
-                        charge_name = "정기권(3개월)";
-                        amount = 3000;
-                        cal.setTime(mDate);
-                        cal.add(Calendar.MONTH, 3);
-                        deadline = simpleDate.format(cal.getTime());
-                        break;
-                    }
+                if(rb_id == R.id.radio_A){
+                    charge_name = "정기권(1개월)";
+                    amount = 1000;
+                    cal.setTime(mDate);
+                    cal.add(Calendar.MONTH, 1);
+                    deadline = simpleDate.format(cal.getTime());
                 }
+                else if(rb_id == R.id.radio_B){
+                    charge_name = "정기권(2개월)";
+                    amount = 2000;
+                    cal.setTime(mDate);
+                    cal.add(Calendar.MONTH, 2);
+                    deadline = simpleDate.format(cal.getTime());
+                }
+                else if(rb_id == R.id.radio_C){
+                    charge_name = "정기권(3개월)";
+                    amount = 3000;
+                    cal.setTime(mDate);
+                    cal.add(Calendar.MONTH, 3);
+                    deadline = simpleDate.format(cal.getTime());
+                }
+
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override

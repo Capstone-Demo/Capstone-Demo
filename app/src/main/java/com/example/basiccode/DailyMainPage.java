@@ -63,29 +63,34 @@ public class DailyMainPage extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.bottom_reservation:
-                        getSupportActionBar().setTitle("예약하기");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
-                        return true;
-                    case R.id.bottom_buying:
-                        getSupportActionBar().setTitle("정기권구매");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
-                        return true;
-                    case R.id.bottom_star:
-                        getSupportActionBar().setTitle("즐겨찾기");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
-                        return true;
-                    case R.id.bottom_mypage:
-                        getSupportActionBar().setTitle("마이페이지");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
-                        return true;
-                    case R.id.bottom_report:
-                        getSupportActionBar().setTitle("신고하기");
-                        getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyReportFragment).commit();
-                        return true;
+                int ItemId = item.getItemId();
+
+                if(ItemId == R.id.bottom_reservation){
+                    getSupportActionBar().setTitle("예약하기");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMainFragment).commit();
+                    return true;
                 }
-                return false;
+                else if(ItemId == R.id.bottom_buying){
+                    getSupportActionBar().setTitle("정기권구매");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailybuyingFragement).commit();
+                    return true;
+                }
+                else if(ItemId == R.id.bottom_star){
+                    getSupportActionBar().setTitle("즐겨찾기");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyStarFragement).commit();
+                    return true;
+                }
+                else if(ItemId == R.id.bottom_mypage){
+                    getSupportActionBar().setTitle("마이페이지");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyMypageFragement).commit();
+                    return true;
+                }
+                else if(ItemId == R.id.bottom_report){
+                    getSupportActionBar().setTitle("신고하기");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment,dailyReportFragment).commit();
+                    return true;
+                }
+                else return false;
             }
         });
     }
@@ -97,12 +102,14 @@ public class DailyMainPage extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.back:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int ItemId = item.getItemId();
+
+        if(ItemId == R.id.back){
+            finish();
+            return true;
+        }
+        else{
+            return super.onOptionsItemSelected(item);
         }
     }
 
