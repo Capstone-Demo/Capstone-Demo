@@ -25,7 +25,7 @@
             android:text="MY 차량"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             />
 
@@ -57,7 +57,7 @@
             android:layout_marginTop="70dp"
             android:layout_marginLeft="20dp"
             android:text="차량번호"
-            android:textSize="17dp"
+            android:textSize="17sp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -69,7 +69,7 @@
             android:layout_marginTop="70dp"
             android:layout_marginLeft="320dp"
             android:text="허가여부"
-            android:textSize="17dp"
+            android:textSize="17sp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -84,7 +84,7 @@
             android:text="MY 예약현황"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             />
 
@@ -109,7 +109,7 @@
             android:text="MY 정기권"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             />
 

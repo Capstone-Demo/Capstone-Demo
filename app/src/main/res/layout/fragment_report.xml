@@ -23,7 +23,7 @@
             android:layout_marginLeft="40dp"
             android:text="오늘날짜"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             />
 
@@ -58,7 +58,7 @@
             android:layout_marginLeft="40dp"
             android:text="신고사유"
             android:textColor="@color/black"
-            android:textSize="18dp"
+            android:textSize="18sp"
             />
 
         <RadioGroup
@@ -103,7 +103,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:text="신고하기"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:background="@color/darkblue" />
 
 

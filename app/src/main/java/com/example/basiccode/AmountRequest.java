@@ -11,7 +11,7 @@ public class AmountRequest extends StringRequest {
     //mysql -uroot -p -hlocalhost
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/Amount.php";
+    final static private String URL = "http://192.168.219.101/Amount.php";
     private Map<String, String> map;
 
     public AmountRequest(String car_num,int amount,Response.Listener<String> listener) {

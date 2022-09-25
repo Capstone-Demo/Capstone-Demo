@@ -11,7 +11,7 @@ import java.util.Map;
 public class BuyingRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/Buying.php";
+    final static private String URL = "http://192.168.219.101/Buying.php";
     private Map<String, String> map;
 
     //정기권구매하기

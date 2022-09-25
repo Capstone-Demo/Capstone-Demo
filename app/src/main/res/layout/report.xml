@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="신고일자"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_report_college"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="신고위치"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="차량번호"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
 
         <TextView
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text="위반사항"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/black"/>
 
         <Button
@@ -71,7 +71,7 @@
             android:background="@color/darkblue"
             android:text="처리완료"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="18sp"
             tools:ignore="TextContrastCheck" />
 
     </LinearLayout>

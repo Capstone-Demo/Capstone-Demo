@@ -10,8 +10,8 @@ import java.util.Map;
 public class VisitPayRequest extends StringRequest {
 
     // 서버 URL 설정 ( PHP 파일 연동 )
-    final static private String URL = "http://192.168.35.21/VisitPay.php";
-    final static private String URL2 = "http://192.168.35.21/Amount.php";
+    final static private String URL = "http://192.168.219.101/VisitPay.php";
+    final static private String URL2 = "http://192.168.219.101/Amount.php";
     private Map<String, String> map;
 
     public VisitPayRequest(String car_num, Response.Listener<String> listener) {

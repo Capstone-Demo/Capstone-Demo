@@ -70,7 +70,7 @@ public class DailyReportFragment extends Fragment {
 
         //날짜 계산
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
         long now = System.currentTimeMillis();
         Date mDate = new Date(now);
         cal.setTime(mDate);
@@ -91,24 +91,19 @@ public class DailyReportFragment extends Fragment {
                 //radio선택 가져오기
                 int rb_id = rg_cause.getCheckedRadioButtonId();
 
-                switch (rb_id){
-                    case R.id.radio_button_1:{
-                        cause = "예약위반";
-                        break;
-                    }
-                    case R.id.radio_button_2:{
-                        cause = "불법주차";
-                        break;
-                    }
-                    case R.id.radio_button_3:{
-                        cause = "주차방해";
-                        break;
-                    }
-                    case R.id.radio_button_4:{
-                        cause = "부당사용";
-                        break;
-                    }
+                if(rb_id == R.id.radio_button_1){
+                    cause = "예약위반";
                 }
+                else if(rb_id == R.id.radio_button_2){
+                    cause = "불법주차";
+                }
+                else if(rb_id == R.id.radio_button_3){
+                    cause = "주차방해";
+                }
+                else if(rb_id == R.id.radio_button_4){
+                    cause = "부당사용";
+                }
+
 
                 System.out.println("cause : " + cause);
                 System.out.println("college_name : " + report_college);
