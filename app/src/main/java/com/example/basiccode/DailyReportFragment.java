@@ -70,7 +70,7 @@ public class DailyReportFragment extends Fragment {
 
         //날짜 계산
         Calendar cal = Calendar.getInstance();
-        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
         long now = System.currentTimeMillis();
         Date mDate = new Date(now);
         cal.setTime(mDate);
