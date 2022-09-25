@@ -23,7 +23,7 @@
                 android:layout_marginLeft="42dp"
                 android:text="주차장명"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 />
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_marginLeft="135dp"
                 android:text="자리수"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 />
             <TextView
                 android:id="@+id/tv_3"
@@ -44,7 +44,7 @@
                 android:layout_marginLeft="220dp"
                 android:text="조회"
                 android:textStyle="bold"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/tv_4"
@@ -54,7 +54,7 @@
                 android:layout_marginLeft="320dp"
                 android:text="예약"
                 android:textStyle="bold"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
 
 
@@ -78,7 +78,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:text="+ 즐겨찾기 등록"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:backgroundTint="@color/darkblue"
             />
@@ -91,7 +91,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:text="- 즐겨찾기 삭제"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:backgroundTint="@color/darkblue"
             />

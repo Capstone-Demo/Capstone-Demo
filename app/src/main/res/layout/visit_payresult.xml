@@ -22,7 +22,7 @@
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:background="@color/darkblue"
         android:text="재조회" />
@@ -37,7 +37,7 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:background="@color/darkblue"
         android:text="사전결제" />

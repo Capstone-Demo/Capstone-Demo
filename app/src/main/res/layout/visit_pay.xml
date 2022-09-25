@@ -29,7 +29,7 @@
             android:background="@color/lightblue"
             android:hint="차량번호을 입력해주세요"
             android:gravity="center"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:inputType="textPersonName"
             android:layout_gravity="center"
@@ -45,7 +45,7 @@
             android:id="@+id/resultbutton"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:background="@color/darkblue"
             android:text="차량조회" />
