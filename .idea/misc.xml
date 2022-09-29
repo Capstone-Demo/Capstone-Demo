@@ -64,12 +64,15 @@
         <entry key="..\:/Users/LG/AndroidStudioProjects/Basiccode/app/src/main/res/layout/star_add.xml" value="0.13145896656534956" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Basiccode/app/src/main/res/layout/star_reserve.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Basiccode/app/src/main/res/layout/visit_pay.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.252" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/drawable/ic_icon_adobe_express.xml" value="0.136" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/drawable/ic_launcher_background.xml" value="0.252" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/activity_main.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/daily_login.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/daily_main.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/daily_register.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/daily_reservation_main.xml" value="0.27395833333333336" />
-        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/firstpage.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/firstpage.xml" value="0.1" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/fragement_buying.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/fragement_main.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/fragement_mypage.xml" value="0.27395833333333336" />
@@ -93,6 +96,7 @@
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/layout/visit_payresult.xml" value="0.213768115942029" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/menu/menu_bottom.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/menu/menu_main.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/LG/AndroidStudioProjects/Re-Coder-App-Web/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.252" />
       </map>
     </option>
   </component>

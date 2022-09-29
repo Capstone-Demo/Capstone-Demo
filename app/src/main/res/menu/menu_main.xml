@@ -6,6 +6,6 @@
     <item
         android:id="@+id/back"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/back"
+        android:icon="@mipmap/back"
         android:title="back" />
 </menu>
