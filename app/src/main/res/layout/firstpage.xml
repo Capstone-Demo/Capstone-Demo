@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
-        app:srcCompat="@mipmap/parking2" />
+        app:srcCompat="@mipmap/parkinglogo" />
 
     <LinearLayout
         android:layout_width="match_parent"
