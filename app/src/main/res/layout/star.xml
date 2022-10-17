@@ -57,7 +57,8 @@
             android:text="정보조회"
             android:textColor="#fff"
             android:textSize="18sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            style="?android:attr/borderlessButtonStyle" />
 
         <Button
             android:id="@+id/btn_reserve"
@@ -68,7 +69,8 @@
             android:text="예약하기"
             android:textColor="#fff"
             android:textSize="18sp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck"
+            style="?android:attr/borderlessButtonStyle" />
 
 
     </LinearLayout>
