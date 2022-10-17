@@ -142,7 +142,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="휴대폰 번호"
-        android:inputType="textPersonName"
+        android:inputType="phone"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/rg_gender"
         app:layout_constraintStart_toStartOf="@+id/rg_gender"

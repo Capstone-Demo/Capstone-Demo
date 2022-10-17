@@ -49,7 +49,7 @@
         android:ems="10"
         android:hint="비밀번호"
         android:background="@color/lightblue"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_id"
         app:layout_constraintStart_toStartOf="@+id/et_id"
