@@ -36,7 +36,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/tv_login"
         app:layout_constraintStart_toStartOf="@id/tv_login"
-        app:layout_constraintTop_toTopOf="@id/tv_login" />
+        app:layout_constraintTop_toTopOf="@id/tv_login"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_password"
@@ -53,7 +54,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_id"
         app:layout_constraintStart_toStartOf="@+id/et_id"
-        app:layout_constraintTop_toBottomOf="@+id/et_id" />
+        app:layout_constraintTop_toBottomOf="@+id/et_id"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btn_login"

@@ -33,7 +33,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@id/tv_register"
         app:layout_constraintStart_toStartOf="@id/tv_register"
-        app:layout_constraintTop_toTopOf="@id/tv_register" />
+        app:layout_constraintTop_toTopOf="@id/tv_register"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/btn_exam"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="@+id/et_id"
         app:layout_constraintStart_toStartOf="@+id/et_id"
         app:layout_constraintTop_toBottomOf="@+id/et_id"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_passck"
@@ -70,7 +72,8 @@
         app:layout_constraintEnd_toEndOf="@+id/et_password"
         app:layout_constraintStart_toStartOf="@+id/et_password"
         app:layout_constraintTop_toBottomOf="@+id/et_password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/et_name"
@@ -83,7 +86,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_passck"
         app:layout_constraintStart_toStartOf="@+id/et_passck"
-        app:layout_constraintTop_toBottomOf="@+id/et_passck" />
+        app:layout_constraintTop_toBottomOf="@+id/et_passck"
+        android:importantForAutofill="no" />
 
 
     <EditText
@@ -97,7 +101,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/et_name"
         app:layout_constraintStart_toStartOf="@+id/et_name"
-        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+        app:layout_constraintTop_toBottomOf="@+id/et_name"
+        android:importantForAutofill="no" />
 
     <RadioGroup
         android:id="@+id/rg_gender"
@@ -146,7 +151,8 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="@+id/rg_gender"
         app:layout_constraintStart_toStartOf="@+id/rg_gender"
-        app:layout_constraintTop_toBottomOf="@+id/rg_gender" />
+        app:layout_constraintTop_toBottomOf="@+id/rg_gender"
+        android:importantForAutofill="no" />
 
 
     <Button

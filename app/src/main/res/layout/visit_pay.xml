@@ -17,7 +17,7 @@
         android:textStyle="bold"
         android:inputType="textPersonName"
         android:layout_gravity="center"
-        />
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView3"

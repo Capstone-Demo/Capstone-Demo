@@ -38,7 +38,7 @@
             android:ems="10"
             android:hint="주차장 위치를 입력하세요."
             android:minHeight="48dp"
-            />
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/et_report_num"
@@ -51,7 +51,7 @@
             android:ems="10"
             android:hint="신고할 차량번호를 입력하세요."
             android:minHeight="48dp"
-            />
+            android:importantForAutofill="no" />
 
         <TextView
             android:layout_width="match_parent"
