@@ -1,5 +1,6 @@
 package com.example.basiccode;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
+@SuppressLint("SetTextI18n")
 public class VisitPayAdapter extends BaseAdapter {
     ArrayList<VisitPayList> items = new ArrayList<VisitPayList>();
     Context context;

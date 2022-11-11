@@ -11,6 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
+        android:contentDescription="@null"
         app:srcCompat="@mipmap/parkinglogo" />
 
     <LinearLayout
@@ -28,7 +29,8 @@
             android:text="사전결제"
             android:textColor="@color/darkblue"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="?android:attr/borderlessButtonStyle" />
 
         <Button
             android:id="@+id/dailybutton"
@@ -40,7 +42,8 @@
             android:text="회원이용"
             android:textColor="@color/darkblue"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="?android:attr/borderlessButtonStyle" />
 
         <Button
             android:id="@+id/managerbutton"
@@ -52,7 +55,8 @@
 
             android:textColor="@color/darkblue"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            style="?android:attr/borderlessButtonStyle" />
     </LinearLayout>
 
 </LinearLayout>

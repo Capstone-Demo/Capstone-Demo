@@ -34,10 +34,11 @@
             android:layout_marginTop="80dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
+            android:inputType="text"
             android:ems="10"
             android:hint="주차장 위치를 입력하세요."
             android:minHeight="48dp"
-            />
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/et_report_num"
@@ -46,10 +47,11 @@
             android:layout_marginTop="140dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
+            android:inputType="text"
             android:ems="10"
             android:hint="신고할 차량번호를 입력하세요."
             android:minHeight="48dp"
-            />
+            android:importantForAutofill="no" />
 
         <TextView
             android:layout_width="match_parent"

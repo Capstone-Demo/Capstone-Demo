@@ -32,6 +32,7 @@
             android:id="@+id/imageview"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:contentDescription="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/lightblue"
-                android:text="Start" />
+                android:text="Start"
+                style="?android:attr/borderlessButtonStyle" />
 
             <Button
                 android:id="@+id/stopButton"
@@ -60,7 +62,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@color/lightblue"
-                android:text="Stop" />
+                android:text="Stop"
+                style="?android:attr/borderlessButtonStyle" />
 
         </LinearLayout>
 
